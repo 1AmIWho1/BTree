@@ -68,6 +68,27 @@ void Node::Add(Node* child, int mid){
     this->keys.push_back(mid);
 }
 
+void Node::NewInsert(int key, int m){
+    if(this->keys.size() == m){
+    }
+}
+
+void Node::SplitChild(int id, int m){
+    Node* child = this->next[id];
+    Node* new_child = new Node(this, child->leaf);
+    for(int i = keys.size() / 2 + 1; i < keys.size(); ++i)
+        new_child->AddL(next[i], keys.at(i));
+    this->keys[id] = keys.at(keys.size() / 2);
+    this->next[id + 1] = new_child;
+    
+
+    if(!child->leaf){
+        for(int i = m / 2 + 1; i < child->next.size(); ++i)
+            new_child->next.push_back(child->next.at(i));
+        child->next.erase(child->next.begin() + m / 2 + 1, child->next.end());
+    }
+}
+
 void Node::InsertKeyHere(int key){
     int i = 0;  
     while(i < keys.size() && key >= keys.at(i))
@@ -162,8 +183,45 @@ void Node::Insert(int key, int m){
     }
 }
 
-void Node::Delete(int key){
-
+void Node::Delete(int key, int m){
+    Node* P = SearchNode(key);
+    if(P == NULL)
+        return;
+    if(P->leaf){
+        for(int i = 0; i < P->keys.size(); ++i){
+            if(P->keys.at(i) == key){
+                for(; i < P->keys.size() - 1; ++i)
+                    P->keys[i] = P->keys[i + 1];
+            }
+        }
+        P->keys.erase(P->keys.end() - 1, P->keys.end());
+        if(P->keys.size() >= m / 2)
+            return;
+        Node* R = P->parent;
+        Node* S;
+        // not finished!!!
+    }
+    else{
+        int id;
+        for(int i = 0; i < P->keys.size(); ++i){
+            if(P->keys.at(i) == key){
+                id = i;
+                break;
+            }
+        }
+        if(P->next.at(id)->keys.size() > m / 2){
+            int tmp = P->next.at(id)->keys.at(P->next.at(id)->keys.size() - 1);
+            P->next[id]->keys.erase(P->next[id]->keys.end() - 1, P->next[id]->keys.end());
+            P->keys[id] = tmp;
+            return;
+        }
+        else if(P->next.at(id + 1)->keys.size() > m / 2){
+            int tmp = P->next.at(id + 1)->keys.at(0);
+            P->next[id + 1]->keys.erase(P->next[id + 1]->keys.begin(), P->next[id + 1]->keys.begin() + 1);
+            P->keys[id] = tmp;
+            return;
+        }
+    }
 }
 
 bool Node::Search(int n){

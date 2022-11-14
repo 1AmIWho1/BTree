@@ -3,7 +3,6 @@
 #include <iostream>
 #include <vector>
 #include <fstream>
-#include <bits/stdc++.h>
 
 using namespace std;
 
@@ -24,7 +23,6 @@ int main(){
     }
     file.close();
     b->Report();
-    cin >> key;
-    cout << (int)(b->Search(key)) << endl;
+    //b->Report();
     return 0;
 }

@@ -15,9 +15,9 @@ private:
 public:
     BTree(int m);
     ~BTree();
-    bool Search(int n) const;
-    void Insert(int n);
-    void DeleteKey();
+    bool Search(int key) const;
+    void Insert(int key);
+    void Delete(int key);
     
     void Report() const;
 };

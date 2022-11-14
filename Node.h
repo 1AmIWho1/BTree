@@ -19,14 +19,16 @@ private:
     void VerySpecialInsert(int key, int m);
     void InsertKeyHere(int key);
     Node* SearchNode(int n);
+    void SplitChild(int id, int m);
 
 public:
     Node();
     Node(Node* parent);
     Node(Node* parent, bool leaf);
     ~Node();
+    void NewInsert(int key, int m);
     void Insert(int key, int m);
     bool Search(int n);
-    void Delete(int key);
+    void Delete(int key, int m);
     void Report() const;
 };
