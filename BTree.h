@@ -18,6 +18,6 @@ public:
     bool Search(int key) const;
     void Insert(int key);
     void Delete(int key);
-    
+    void NewRoot();
     void Report() const;
 };

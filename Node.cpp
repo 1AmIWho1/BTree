@@ -55,80 +55,8 @@ void Node::Report() const{
         child->Report();
 }
 
-vector<int> Node::GetKeys() const{
-    //vector<int> keys(this->keys);
-    return this->keys;
-}
-
 void Node::InsertChild(Node* child, int id){
     this->children.insert(this->children.begin() + id, child);
-}
-
-void Node::SplitChild(int key, int id, int order){
-    Node* y = this->children[id];
-    Node* z = new Node(this);
-
-    z->keys.insert(z->keys.begin(), y->keys.begin() + order, y->keys.end());
-    y->keys.erase(y->keys.begin() + order, y->keys.end());
-
-    if(y->children.size()){
-        z->children.insert(z->children.begin(), y->children.begin() + order + 1, y->children.end());
-        y->children.erase(y->children.begin() + order + 1, y->children.end());
-    }
-    InsertChild(z, id + 1);
-    int l = y->keys.at(y->keys.size() - 1);
-    int r = z->keys.at(0);
-
-    //cout << key << " l = " << l << " r = " << r << endl;
-    if(l < key && key < r){
-        //keys.push_back(key);
-        keys.insert(keys.begin() + id, key);
-        return;
-    }
-    if(key > r){
-        int i = 0;
-        for(; i < z->keys.size(); ++i){
-            if((i < z->keys.size() && key < z->keys.at(i)) || (i == z->keys.size()))
-                break;
-        }
-        if(z->children.size()){
-            //z->children[z->children.size() - 1]->SplitChild(key, i, order);
-            cout << i << " " << key << endl;
-            z->SplitChild(key, i - 1, order);
-            return;
-        }
-        keys.insert(keys.begin() + id, z->keys.at(0));
-        z->keys[0] = key;
-        return;
-    }
-    if(key < l){
-        keys.insert(keys.begin() + id, y->keys.at(y->keys.size() - 1));
-        y->keys[y->keys.size() - 1] = key;
-        return;
-    }
-}
-
-void Node::InsertNotFull(int key, int order){
-    if(!children.size()){
-        for(int i = 0; i < keys.size() + 1; ++i)
-            if((i < keys.size() && key < keys.at(i)) || (i == keys.size())){
-                this->keys.insert(this->keys.begin() + i, key);
-                return;
-            }
-    }
-    else{
-        int i = 0;
-        for(; i < keys.size() + 1; ++i)
-            if((i < keys.size() && key < keys.at(i)) || (i == keys.size()))
-                break;
-        if(children.at(i)->GetKeys().size() == 2 * order){
-            SplitChild(key, i, order);
-            if(key > keys.at(i))
-                ++i;
-        }
-        else
-            this->children[i]->InsertNotFull(key, order);
-    }
 }
 
 Node* Node::GetParent(){
@@ -169,7 +97,7 @@ Node* Node::WhereToInsert(int key){
 void Node::SplitOverFlowChild(int order){
     int id = 0;
     for(; id < children.size(); ++id)
-        if(children.at(id)->keys.size() > 2 * order)
+        if(children.at(id)->IsOverFlow(order))
             break;
     
     Node* y = this->children[id];
@@ -185,5 +113,4 @@ void Node::SplitOverFlowChild(int order){
         y->children.erase(y->children.begin() + order + 1, y->children.end());
     }
     children.insert(children.begin() + id + 1, z);
-    //InsertChild(z, id + 1);
 }

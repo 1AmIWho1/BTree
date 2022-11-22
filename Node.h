@@ -20,12 +20,9 @@ public:
     ~Node();
     bool Search(int n);
     void Report() const;
-    vector<int> GetKeys() const;
 
     void InsertChild(Node* child, int id);
     void SetParent(Node* parent);
-    void SplitChild(int key, int id, int m);
-    void InsertNotFull(int key, int m);
 
     Node* GetParent();
     bool IsFull(int order);
