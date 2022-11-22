@@ -40,7 +40,7 @@ void BTree::Insert(int key){
             do{
                 node = node->GetParent();
                 node->SplitOverFlowChild(order);
-            } while(!node->IsRoot() && node->IsFull(order));
+            } while(!node->IsRoot() && node->IsOverFlow(order));
             if(node->IsRoot() && node->IsOverFlow(order)){
                 NewRoot();
             }
