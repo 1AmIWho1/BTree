@@ -25,7 +25,6 @@ public:
     void SetParent(Node* parent);
 
     Node* GetParent();
-    bool IsFull(int order);
     bool IsOverFlow(int order);
     bool IsRoot();
     bool InsertHere(int key, int order);

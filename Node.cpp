@@ -71,10 +71,6 @@ bool Node::IsOverFlow(int order){
     return keys.size() > 2 * order;
 }
 
-bool Node::IsFull(int order){
-    return keys.size() == 2 * order;
-}
-
 bool Node::InsertHere(int key, int order){
     for(int i = 0; i < keys.size() + 1; ++i)
         if((i < keys.size() && key < keys.at(i)) || (i == keys.size())){
@@ -112,5 +108,5 @@ void Node::SplitOverFlowChild(int order){
         z->children.insert(z->children.begin(), y->children.begin() + order + 1, y->children.end());
         y->children.erase(y->children.begin() + order + 1, y->children.end());
     }
-    children.insert(children.begin() + id + 1, z);
+    InsertChild(z, id + 1);
 }
