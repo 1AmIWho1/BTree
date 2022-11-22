@@ -13,7 +13,7 @@ private:
     int order;
 
 public:
-    BTree(int m);
+    BTree(int t);
     ~BTree();
     bool Search(int key) const;
     void Insert(int key);

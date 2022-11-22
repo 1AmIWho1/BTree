@@ -8,27 +8,30 @@ using namespace std;
 class Node{
 private:
     Node* parent;
-    vector<Node*> next;
+    vector<Node*> children;
     vector<int> keys;
     bool leaf;
 
-    void SetParent(Node* parent);
-    void Add(Node* child, int mid);
-    void AddL(Node* child, int key);
-    void AddR(Node* child);
-    void VerySpecialInsert(int key, int m);
-    void InsertKeyHere(int key);
     Node* SearchNode(int n);
-    void SplitChild(int id, int m);
 
 public:
-    Node();
+    Node(bool leaf);
     Node(Node* parent);
-    Node(Node* parent, bool leaf);
     ~Node();
-    void NewInsert(int key, int m);
-    void Insert(int key, int m);
     bool Search(int n);
-    void Delete(int key, int m);
     void Report() const;
+    vector<int> GetKeys() const;
+
+    void InsertChild(Node* child, int id);
+    void SetParent(Node* parent);
+    void SplitChild(int key, int id, int m);
+    void InsertNotFull(int key, int m);
+
+    Node* GetParent();
+    bool IsFull(int order);
+    bool IsOverFlow(int order);
+    bool IsRoot();
+    bool InsertHere(int key, int order);
+    Node* WhereToInsert(int key);
+    void SplitOverFlowChild(int order);
 };

@@ -12,17 +12,16 @@ int main(){
     file.open("test.txt");
     int n, m;
     file >> n >> m;
-    BTree* b = new BTree(m);
+    BTree b(m);
     int key;
     for(int i = 0; i < n; ++i){
         file >> key;
         //cout << "adding " << key << endl;
-        b->Insert(key);
+        b.Insert(key);
         //b->Report();
         //cout << endl;
     }
     file.close();
-    b->Report();
-    //b->Report();
+    b.Report();
     return 0;
 }
