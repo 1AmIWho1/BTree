@@ -13,6 +13,7 @@ private:
     bool leaf;
 
     Node* SearchNode(int n);
+    int GetClosesKeyBig();
 
 public:
     Node(bool leaf);

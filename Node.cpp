@@ -45,6 +45,8 @@ bool Node::Search(int n){
 }
 
 void Node::Report() const{
+    /*if(parent != NULL)
+        cout << "(" << parent->keys.at(0) << ") " << endl;*/
     for(int key : keys)
         cout << key << " ";
     cout << endl;
@@ -108,24 +110,62 @@ void Node::SplitOverFlowChild(int order){
         z->children.insert(z->children.begin(), y->children.begin() + order + 1, y->children.end());
         y->children.erase(y->children.begin() + order + 1, y->children.end());
     }
+    for(Node* node : z->children)
+        node->SetParent(z);
     InsertChild(z, id + 1);
+}
+
+int Node::GetClosesKeyBig(){
+    if(!children.size())
+        return keys.at(0);
+    return children.at(0)->GetClosesKeyBig();
 }
 
 void Node::DeleteKey(int key, int order){
     Node* node = SearchNode(key);
+
     if(node == NULL)
         return;
-    if(!node->children.size()){
-        int id = 0;
-        for(; id < node->keys.size(); ++id)
-            if(key == node->keys.at(id)){
-                break;
-            }
-        if(node->keys.size() > order){
-            node->keys.erase(node->keys.begin() + id);
-            return;
-        }
-        node->keys.erase(node->keys.begin() + id);
 
+    int id = 0;
+    for(; id < node->keys.size(); ++id)
+        if(key == node->keys.at(id))
+            break;
+
+    if(!node->children.size()){
+        node->keys.erase(node->keys.begin() + id);
+        if(node->keys.size() >= order || node->parent == NULL)
+            return;
+        cout << "low at key " << key << endl;
+        Node* P = node->parent;
+        if(id < P->children.size() - 1){
+            int child_id = 0;
+            for(; child_id < P->children.size(); ++child_id)
+                if(P->children.at(child_id) == node)
+                    break;
+
+            Node* S = P->children.at(child_id + 1);
+
+            if(S->keys.size() == order){
+                node->keys.push_back(P->keys.at(child_id));
+                P->keys.erase(P->keys.begin() + child_id);
+                node->keys.insert(node->keys.begin() + order, S->keys.begin(), S->keys.end());
+                P->children.erase(P->children.begin() + child_id + 1);
+                if(P->keys.size() < order){
+                    // TODO
+                }
+                return;
+            }
+            node->InsertHere(P->keys.at(child_id), order);
+            P->keys[child_id] = S->keys.at(0);
+            S->DeleteKey(S->keys.at(0), order);
+        }
+    }
+
+    else{
+        cout << "else for key " << key << endl;
+        int y = node->children.at(id + 1)->GetClosesKeyBig();
+        node->children.at(id + 1)->DeleteKey(y, order);
+        node->keys[id] = y;
     }
 }
