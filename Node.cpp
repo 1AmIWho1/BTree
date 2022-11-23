@@ -77,9 +77,8 @@ bool Node::InsertHere(int key, int order){
     for(int i = 0; i < keys.size() + 1; ++i)
         if((i < keys.size() && key < keys.at(i)) || (i == keys.size())){
             keys.insert(keys.begin() + i, key);
-            break;
-        }
-    return keys.size() > 2 * order;
+            return keys.size() > 2 * order;
+        }   
 }
 
 Node* Node::WhereToInsert(int key){
@@ -137,27 +136,27 @@ void Node::DeleteKey(int key, int order){
         if(node->keys.size() >= order || node->parent == NULL)
             return;
         cout << "low at key " << key << endl;
-        Node* P = node->parent;
-        if(id < P->children.size() - 1){
+        Node* R = node->parent;
+        if(id < R->children.size() - 1){
             int child_id = 0;
-            for(; child_id < P->children.size(); ++child_id)
-                if(P->children.at(child_id) == node)
+            for(; child_id < R->children.size(); ++child_id)
+                if(R->children.at(child_id) == node)
                     break;
 
-            Node* S = P->children.at(child_id + 1);
+            Node* S = R->children.at(child_id + 1);
 
             if(S->keys.size() == order){
-                node->keys.push_back(P->keys.at(child_id));
-                P->keys.erase(P->keys.begin() + child_id);
+                node->keys.push_back(R->keys.at(child_id));
+                R->keys.erase(R->keys.begin() + child_id);
                 node->keys.insert(node->keys.begin() + order, S->keys.begin(), S->keys.end());
-                P->children.erase(P->children.begin() + child_id + 1);
-                if(P->keys.size() < order){
+                R->children.erase(R->children.begin() + child_id + 1);
+                if(R->keys.size() < order){
                     // TODO
                 }
                 return;
             }
-            node->InsertHere(P->keys.at(child_id), order);
-            P->keys[child_id] = S->keys.at(0);
+            node->InsertHere(R->keys.at(child_id), order);
+            R->keys[child_id] = S->keys.at(0);
             S->DeleteKey(S->keys.at(0), order);
         }
     }
