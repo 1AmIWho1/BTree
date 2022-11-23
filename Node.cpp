@@ -110,3 +110,22 @@ void Node::SplitOverFlowChild(int order){
     }
     InsertChild(z, id + 1);
 }
+
+void Node::DeleteKey(int key, int order){
+    Node* node = SearchNode(key);
+    if(node == NULL)
+        return;
+    if(!node->children.size()){
+        int id = 0;
+        for(; id < node->keys.size(); ++id)
+            if(key == node->keys.at(id)){
+                break;
+            }
+        if(node->keys.size() > order){
+            node->keys.erase(node->keys.begin() + id);
+            return;
+        }
+        node->keys.erase(node->keys.begin() + id);
+
+    }
+}

@@ -30,4 +30,6 @@ public:
     bool InsertHere(int key, int order);
     Node* WhereToInsert(int key);
     void SplitOverFlowChild(int order);
+
+    void DeleteKey(int key, int order);
 };

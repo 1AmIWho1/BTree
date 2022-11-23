@@ -22,6 +22,10 @@ int main(){
         //cout << endl;
     }
     file.close();
+    //b.Report();
+    b.Delete(3);
+    b.Delete(7);
+    b.Delete(8);
     b.Report();
     return 0;
 }

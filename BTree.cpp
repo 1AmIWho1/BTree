@@ -48,6 +48,10 @@ void BTree::Insert(int key){
     }
 }
 
+void BTree::Delete(int key){
+    root->DeleteKey(key, order);
+}
+
 void BTree::Report() const{
     cout << "BTree:" << endl;
     root->Report();
