@@ -77,8 +77,15 @@ bool Node::InsertHere(int key, int order){
     for(int i = 0; i < keys.size() + 1; ++i)
         if((i < keys.size() && key < keys.at(i)) || (i == keys.size())){
             keys.insert(keys.begin() + i, key);
-            return keys.size() > 2 * order;
-        }   
+            break;
+        }
+    return keys.size() > 2 * order;
+}
+
+Node* Node::FindRoot(){
+    if(parent == NULL)
+        return this;
+    return parent->FindRoot();
 }
 
 Node* Node::WhereToInsert(int key){
@@ -120,11 +127,11 @@ int Node::GetClosesKeyBig(){
     return children.at(0)->GetClosesKeyBig();
 }
 
-void Node::DeleteKey(int key, int order){
+Node* Node::DeleteKey(int key, int order){
     Node* node = SearchNode(key);
 
     if(node == NULL)
-        return;
+        return FindRoot();
 
     int id = 0;
     for(; id < node->keys.size(); ++id)
@@ -133,16 +140,17 @@ void Node::DeleteKey(int key, int order){
 
     if(!node->children.size()){
         node->keys.erase(node->keys.begin() + id);
+        
         if(node->keys.size() >= order || node->parent == NULL)
-            return;
-        cout << "low at key " << key << endl;
+            return FindRoot();
+        
         Node* R = node->parent;
-        if(id < R->children.size() - 1){
-            int child_id = 0;
-            for(; child_id < R->children.size(); ++child_id)
-                if(R->children.at(child_id) == node)
-                    break;
+        int child_id = 0;
+        for(; child_id < R->children.size(); ++child_id)
+            if(R->children.at(child_id) == node)
+                break;
 
+        if(child_id < R->children.size() - 1){
             Node* S = R->children.at(child_id + 1);
 
             if(S->keys.size() == order){
@@ -151,20 +159,37 @@ void Node::DeleteKey(int key, int order){
                 node->keys.insert(node->keys.begin() + order, S->keys.begin(), S->keys.end());
                 R->children.erase(R->children.begin() + child_id + 1);
                 if(R->keys.size() < order){
-                    // TODO
+                    cout << "need 0 sth!" << endl;
                 }
-                return;
+                return FindRoot();
             }
             node->InsertHere(R->keys.at(child_id), order);
             R->keys[child_id] = S->keys.at(0);
             S->DeleteKey(S->keys.at(0), order);
         }
+        else{
+            Node* S = R->children.at(child_id - 1);
+
+            if(S->keys.size() == order){
+                node->keys.insert(node->keys.begin() ,R->keys.at(child_id - 1));
+                R->keys.erase(R->keys.begin() + child_id - 1);
+                node->keys.insert(node->keys.begin(), S->keys.begin(), S->keys.end());
+                R->children.erase(R->children.begin() + child_id - 1);
+                if(R->keys.size() < order){
+                    cout << "need 1 sth!" << endl;
+                }
+                return FindRoot();
+            }
+            node->InsertHere(R->keys.at(child_id - 1), order);
+            R->keys[child_id - 1] = S->keys.at(S->keys.size() - 1);
+            S->DeleteKey(S->keys.at(S->keys.size() - 1), order);
+        }
     }
 
     else{
-        cout << "else for key " << key << endl;
         int y = node->children.at(id + 1)->GetClosesKeyBig();
         node->children.at(id + 1)->DeleteKey(y, order);
         node->keys[id] = y;
     }
+    return FindRoot();
 }

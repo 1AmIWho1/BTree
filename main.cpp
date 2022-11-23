@@ -29,7 +29,9 @@ int main(){
     b.Delete(6);
     b.Delete(22);
     b.Report();
-    b.Delete(46);
+    //b.Delete(46);
+    b.Insert(56);
+    b.Delete(68);
     b.Report();
     return 0;
 }

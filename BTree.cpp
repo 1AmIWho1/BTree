@@ -49,7 +49,7 @@ void BTree::Insert(int key){
 }
 
 void BTree::Delete(int key){
-    root->DeleteKey(key, order);
+    root = root->DeleteKey(key, order);
 }
 
 void BTree::Report() const{

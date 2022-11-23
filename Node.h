@@ -13,6 +13,7 @@ private:
     bool leaf;
 
     Node* SearchNode(int n);
+    Node* FindRoot();
     int GetClosesKeyBig();
 
 public:
@@ -32,5 +33,5 @@ public:
     Node* WhereToInsert(int key);
     void SplitOverFlowChild(int order);
 
-    void DeleteKey(int key, int order);
+    Node* DeleteKey(int key, int order);
 };
