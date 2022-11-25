@@ -58,6 +58,7 @@ void Node::Report() const{
 }
 
 void Node::InsertChild(Node* child, int id){
+    child->SetParent(this);
     this->children.insert(this->children.begin() + id, child);
 }
 
@@ -127,6 +128,72 @@ int Node::GetClosesKeyBig(){
     return children.at(0)->GetClosesKeyBig();
 }
 
+Node* Node::DoSomething(int order){ // activates when in current node too few keys
+    if(IsRoot()){
+        if(children.size() == 2 && children.at(0)->keys.size() + children.at(1)->keys.size() + keys.size() <= 2 * order){
+            keys.insert(keys.begin(), children.at(0)->keys.begin(), children.at(0)->keys.end());
+            keys.insert(keys.begin() + keys.size() - 1, children.at(1)->keys.begin(), children.at(1)->keys.end());
+            children.erase(children.begin(), children.end());
+            return this;
+        }
+        int child_id = 0;
+        for(; child_id < keys.size(); ++child_id){
+            if(children.at(child_id)->keys.size() < order){
+                break;
+            }
+        }
+        if(children.size() == 2){
+            if(child_id == 1){
+                children[child_id]->keys.insert(children[child_id]->keys.begin(), keys.at(0));
+                keys[0] = children.at(0)->keys.at(children.at(0)->keys.size() - 1);
+                children.at(0)->keys.erase(children.at(0)->keys.begin() + children.at(0)->keys.size() - 1);
+            }
+            else{
+                children[child_id]->keys.push_back(keys.at(0));
+                keys[0] = children.at(1)->keys.at(0);
+                children.at(1)->keys.erase(children.at(1)->keys.begin());
+            }
+            return this;
+        }
+        if(children.size() == 1 && keys.size() == 0){
+            children.at(0)->SetParent(NULL);
+            return children.at(0);
+        }
+            
+    } 
+    
+    
+    Node* C = this->parent;
+    int child_id = 0;
+    for(; child_id < C->children.size(); ++child_id)
+        if(C->children.at(child_id) == this)
+            break;
+    Node* B;
+    if(child_id != C->keys.size())
+        B = C->children.at(child_id + 1);
+    else
+        B = C->children.at(child_id - 1);   
+
+    if(C->IsRoot()){
+        if(B->keys.size() + 2 <= 2 * order){
+            if(!keys.size() || B->keys.at(0) < keys.at(0)){
+                B->keys.push_back(C->keys.at(child_id - 1));
+                C->keys.erase(C->keys.begin() + child_id - 1);
+                for(int i = 0; i < keys.size(); ++i){
+                    B->keys.push_back(keys.at(i));
+                    children.at(i)->SetParent(B);
+                    B->children.push_back(children.at(i));
+                }
+                B->children.push_back(children.at(children.size() - 1));
+                B->parent = NULL;
+                return B;
+            }
+        }
+    }
+    cout << "sth" << endl;
+    return NULL;
+}
+
 Node* Node::DeleteKey(int key, int order){
     Node* node = SearchNode(key);
 
@@ -152,7 +219,6 @@ Node* Node::DeleteKey(int key, int order){
 
         if(child_id < R->children.size() - 1){
             Node* S = R->children.at(child_id + 1);
-
             if(S->keys.size() == order){
                 node->keys.push_back(R->keys.at(child_id));
                 R->keys.erase(R->keys.begin() + child_id);
@@ -160,6 +226,7 @@ Node* Node::DeleteKey(int key, int order){
                 R->children.erase(R->children.begin() + child_id + 1);
                 if(R->keys.size() < order){
                     cout << "need 0 sth!" << endl;
+                    return R->DoSomething(order);
                 }
                 return FindRoot();
             }
@@ -177,9 +244,11 @@ Node* Node::DeleteKey(int key, int order){
                 R->children.erase(R->children.begin() + child_id - 1);
                 if(R->keys.size() < order){
                     cout << "need 1 sth!" << endl;
+                    return R->DoSomething(order);
                 }
                 return FindRoot();
             }
+            
             node->InsertHere(R->keys.at(child_id - 1), order);
             R->keys[child_id - 1] = S->keys.at(S->keys.size() - 1);
             S->DeleteKey(S->keys.at(S->keys.size() - 1), order);

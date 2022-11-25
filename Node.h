@@ -16,6 +16,8 @@ private:
     Node* FindRoot();
     int GetClosesKeyBig();
 
+    Node* DoSomething(int order);
+
 public:
     Node(bool leaf);
     Node(Node* parent);
