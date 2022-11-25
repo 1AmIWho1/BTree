@@ -46,7 +46,7 @@ bool Node::Search(int n){
 
 void Node::Report() const{
     /*if(parent != NULL)
-        cout << "(" << parent->keys.at(0) << ") " << endl;*/
+        cout << "(" << parent->keys.at(0) << ") ";*/
     for(int key : keys)
         cout << key << " ";
     cout << endl;
@@ -130,18 +130,26 @@ int Node::GetClosesKeyBig(){
 
 Node* Node::DoSomething(int order){ // activates when in current node too few keys
     if(IsRoot()){
+        if(!keys.size()){
+            keys.insert(keys.begin(), children.at(0)->keys.begin(), children.at(0)->keys.end());
+            children.erase(children.begin(), children.end());
+            return this;
+        }
         if(children.size() == 2 && children.at(0)->keys.size() + children.at(1)->keys.size() + keys.size() <= 2 * order){
             keys.insert(keys.begin(), children.at(0)->keys.begin(), children.at(0)->keys.end());
             keys.insert(keys.begin() + keys.size() - 1, children.at(1)->keys.begin(), children.at(1)->keys.end());
             children.erase(children.begin(), children.end());
             return this;
         }
+
         int child_id = 0;
-        for(; child_id < keys.size(); ++child_id){
-            if(children.at(child_id)->keys.size() < order){
+        for(; child_id < keys.size(); ++child_id)
+            if(children.at(child_id)->keys.size() < order)
                 break;
-            }
-        }
+    
+        if(children.at(child_id)->keys.size() >= order)
+            return this;
+
         if(children.size() == 2){
             if(child_id == 1){
                 children[child_id]->keys.insert(children[child_id]->keys.begin(), keys.at(0));
@@ -159,10 +167,7 @@ Node* Node::DoSomething(int order){ // activates when in current node too few ke
             children.at(0)->SetParent(NULL);
             return children.at(0);
         }
-            
     } 
-    
-    
     Node* C = this->parent;
     int child_id = 0;
     for(; child_id < C->children.size(); ++child_id)
@@ -190,7 +195,6 @@ Node* Node::DoSomething(int order){ // activates when in current node too few ke
             }
         }
     }
-    cout << "sth" << endl;
     return NULL;
 }
 
@@ -224,10 +228,10 @@ Node* Node::DeleteKey(int key, int order){
                 R->keys.erase(R->keys.begin() + child_id);
                 node->keys.insert(node->keys.begin() + order, S->keys.begin(), S->keys.end());
                 R->children.erase(R->children.begin() + child_id + 1);
-                if(R->keys.size() < order){
-                    cout << "need 0 sth!" << endl;
+
+                if(R->keys.size() < order)
                     return R->DoSomething(order);
-                }
+
                 return FindRoot();
             }
             node->InsertHere(R->keys.at(child_id), order);
@@ -242,10 +246,10 @@ Node* Node::DeleteKey(int key, int order){
                 R->keys.erase(R->keys.begin() + child_id - 1);
                 node->keys.insert(node->keys.begin(), S->keys.begin(), S->keys.end());
                 R->children.erase(R->children.begin() + child_id - 1);
-                if(R->keys.size() < order){
-                    cout << "need 1 sth!" << endl;
+
+                if(R->keys.size() < order)
                     return R->DoSomething(order);
-                }
+
                 return FindRoot();
             }
             
@@ -260,5 +264,6 @@ Node* Node::DeleteKey(int key, int order){
         node->children.at(id + 1)->DeleteKey(y, order);
         node->keys[id] = y;
     }
+    
     return FindRoot();
 }
