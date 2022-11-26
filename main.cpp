@@ -36,5 +36,6 @@ int main(){
             b.Report();
     } while(type != 'e');
     file.close();
+    b.Statistic();
     return 0;
 }

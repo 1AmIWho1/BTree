@@ -43,6 +43,39 @@ bool Node::Search(int n){
     return SearchNode(n) == NULL ? false : true;
 }
 
+int Node::GetKeysCount() const{
+    int res = keys.size();
+    for(Node* child : children)
+        res += child->GetKeysCount();
+    return res;
+}
+
+int Node::GetNodesCount() const{
+    int res = 1;
+    for(Node* child : children)
+        res += child->GetNodesCount();
+    return res;
+}
+
+int Node::GetHeight() const{
+    if(!children.size())
+        return 1;
+    int height = 1;
+    Node* node = children.at(0);
+    while(true){
+        ++height;
+        if(!node->children.size())
+            return height;
+        node = node->children.at(0);
+    }
+}
+
+void Node::Statistic(){
+    cout << "Nodes: " << GetNodesCount() << endl;
+    cout << "Keys: " << GetKeysCount() << endl;
+    cout << "Height: " << GetHeight() << endl;
+}
+
 void Node::Report() const{
     /*if(parent != NULL)
         cout << "(" << parent->keys.at(0) << ") ";*/
@@ -65,11 +98,11 @@ Node* Node::GetParent(){
     return parent;
 }
 
-bool Node::IsRoot(){
+bool Node::IsRoot() const{
     return parent == NULL;
 }
 
-bool Node::IsOverFlow(int order){
+bool Node::IsOverFlow(int order) const{
     return keys.size() > 2 * order;
 }
 

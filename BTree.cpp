@@ -51,3 +51,8 @@ void BTree::Report() const{
     cout << "BTree:" << endl;
     root->Report();
 }
+
+void BTree::Statistic(){
+    cout << "BTree statistic:" << endl;
+    root->Statistic();
+}

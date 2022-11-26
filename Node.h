@@ -14,6 +14,9 @@ private:
     Node* SearchNode(int n);
     Node* FindRoot();
     int GetClosesKeyBig();
+    int GetKeysCount() const;
+    int GetNodesCount() const;
+    int GetHeight() const;
 
     Node* DoSomething(int order);
 
@@ -28,11 +31,12 @@ public:
     void SetParent(Node* parent);
 
     Node* GetParent();
-    bool IsOverFlow(int order);
-    bool IsRoot();
+    bool IsOverFlow(int order) const;
+    bool IsRoot() const;
     bool InsertHere(int key, int order);
     Node* WhereToInsert(int key);
     void SplitOverFlowChild(int order);
 
     Node* DeleteKey(int key, int order);
+    void Statistic();
 };

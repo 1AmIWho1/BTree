@@ -20,4 +20,5 @@ public:
     void Delete(int key);
     void NewRoot();
     void Report() const;
+    void Statistic();
 };
