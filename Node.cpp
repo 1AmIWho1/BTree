@@ -6,9 +6,8 @@
 using namespace std;
 
 
-Node::Node(bool leaf){
+Node::Node(){
     this->parent = NULL;
-    this->leaf = leaf;
 }
 
 Node::Node(Node* parent){
@@ -41,7 +40,7 @@ void Node::SetParent(Node* parent){
 }
 
 bool Node::Search(int n){
-    return this->SearchNode(n) == NULL ? false : true;
+    return SearchNode(n) == NULL ? false : true;
 }
 
 void Node::Report() const{
@@ -59,7 +58,7 @@ void Node::Report() const{
 
 void Node::InsertChild(Node* child, int id){
     child->SetParent(this);
-    this->children.insert(this->children.begin() + id, child);
+    children.insert(children.begin() + id, child);
 }
 
 Node* Node::GetParent(){
@@ -105,7 +104,7 @@ void Node::SplitOverFlowChild(int order){
         if(children.at(id)->IsOverFlow(order))
             break;
     
-    Node* y = this->children[id];
+    Node* y = children.at(id);
     Node* z = new Node(this);
     int mid = y->keys.at(order);
     keys.insert(keys.begin() + id, mid);
@@ -157,7 +156,7 @@ Node* Node::DoSomething(int order){ // activates when in current node too few ke
                 children.at(0)->keys.erase(children.at(0)->keys.begin() + children.at(0)->keys.size() - 1);
             }
             else{
-                children[child_id]->keys.push_back(keys.at(0));
+                children.at(child_id)->keys.push_back(keys.at(0));
                 keys[0] = children.at(1)->keys.at(0);
                 children.at(1)->keys.erase(children.at(1)->keys.begin());
             }
@@ -168,7 +167,7 @@ Node* Node::DoSomething(int order){ // activates when in current node too few ke
             return children.at(0);
         }
     } 
-    Node* C = this->parent;
+    Node* C = parent;
     int child_id = 0;
     for(; child_id < C->children.size(); ++child_id)
         if(C->children.at(child_id) == this)

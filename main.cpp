@@ -1,7 +1,6 @@
 #include "BTree.h"
 
 #include <iostream>
-#include <vector>
 #include <fstream>
 
 using namespace std;
@@ -33,9 +32,8 @@ int main(){
                 b.Delete(key);
             }
         }
-        else if(type == 'o'){
+        else if(type == 'o')
             b.Report();
-        }
     } while(type != 'e');
     file.close();
     return 0;

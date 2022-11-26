@@ -10,7 +10,6 @@ private:
     Node* parent;
     vector<Node*> children;
     vector<int> keys;
-    bool leaf;
 
     Node* SearchNode(int n);
     Node* FindRoot();
@@ -19,7 +18,7 @@ private:
     Node* DoSomething(int order);
 
 public:
-    Node(bool leaf);
+    Node();
     Node(Node* parent);
     ~Node();
     bool Search(int n);
