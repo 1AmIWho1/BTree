@@ -13,11 +13,10 @@ int main(){
     file >> order;
     BTree b(order);
     char type;
-    int key;
     do{
         file >> type;
         if(type == 'i'){
-            int n;
+            int n, key;
             file >> n;
             for(int i = 0; i < n; ++i){
                 file >> key;
@@ -25,7 +24,7 @@ int main(){
             }
         }
         else if(type == 'd'){
-            int n;
+            int n, key;
             file >> n;
             for(int i = 0; i < n; ++i){
                 file >> key;
@@ -34,8 +33,9 @@ int main(){
         }
         else if(type == 'o')
             b.Report();
+        else if(type == 's')
+            b.Statistic();
     } while(type != 'e');
     file.close();
-    b.Statistic();
     return 0;
 }
