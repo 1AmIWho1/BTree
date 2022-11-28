@@ -20,6 +20,12 @@ Node::~Node(){
         node = NULL;
 }
 
+/**
+ * @brief Recursively searches for Node which has key
+ * 
+ * @param n 
+ * @return Node* 
+ */
 Node* Node::SearchNode(int n){
     for(int key : keys)
         if(key == n)
@@ -35,14 +41,31 @@ Node* Node::SearchNode(int n){
     return NULL;
 }
 
+/**
+ * @brief Sets new parent for node
+ * 
+ * @param parent New parent
+ */
 void Node::SetParent(Node* parent){
     this->parent = parent;
 }
 
+/**
+ * @brief Checks, if tree obrains this key
+ * 
+ * @param n 
+ * @return true 
+ * @return false 
+ */
 bool Node::Search(int n){
     return SearchNode(n) == NULL ? false : true;
 }
 
+/**
+ * @brief Count number of keys in tree
+ * 
+ * @return int 
+ */
 int Node::GetKeysCount() const{
     int res = keys.size();
     for(Node* child : children)
@@ -50,6 +73,11 @@ int Node::GetKeysCount() const{
     return res;
 }
 
+/**
+ * @brief Count number of Nodes in tree
+ * 
+ * @return int 
+ */
 int Node::GetNodesCount() const{
     int res = 1;
     for(Node* child : children)
@@ -57,6 +85,11 @@ int Node::GetNodesCount() const{
     return res;
 }
 
+/**
+ * @brief 
+ * 
+ * @return int 
+ */
 int Node::GetHeight() const{
     if(!children.size())
         return 1;
