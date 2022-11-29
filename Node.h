@@ -20,6 +20,7 @@ private:
     int GetKeysCount() const;
     int GetNodesCount() const;
     int GetHeight() const;
+    Node* SecretDelete(int key, int order);
 
     Node* DoSomething(int order);
 

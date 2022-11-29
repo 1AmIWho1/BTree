@@ -312,6 +312,70 @@ Node* Node::DoSomething(int order){ // activates when in current node too few ke
     return NULL;
 }
 
+Node* Node::SecretDelete(int key, int order){
+    int id = 0;
+    for(; id < keys.size(); ++id)
+        if(key == keys.at(id))
+            break;
+
+    if(!children.size()){
+        keys.erase(keys.begin() + id);
+        
+        if(keys.size() >= order || parent == NULL)
+            return FindRoot();
+        
+        Node* R = parent;
+        int child_id = 0;
+        for(; child_id < R->children.size(); ++child_id)
+            if(R->children.at(child_id) == this)
+                break;
+
+        if(child_id < R->children.size() - 1){
+            Node* S = R->children.at(child_id + 1);
+            if(S->keys.size() == order){
+                keys.push_back(R->keys.at(child_id));
+                R->keys.erase(R->keys.begin() + child_id);
+                keys.insert(keys.begin() + order, S->keys.begin(), S->keys.end());
+                R->children.erase(R->children.begin() + child_id + 1);
+
+                if(R->keys.size() < order)
+                    return R->DoSomething(order);
+
+                return FindRoot();
+            }
+            InsertHere(R->keys.at(child_id), order);
+            R->keys[child_id] = S->keys.at(0);
+            S->DeleteKey(S->keys.at(0), order);
+        }
+        else{
+            Node* S = R->children.at(child_id - 1);
+
+            if(S->keys.size() == order){
+                keys.insert(keys.begin() ,R->keys.at(child_id - 1));
+                R->keys.erase(R->keys.begin() + child_id - 1);
+                keys.insert(keys.begin(), S->keys.begin(), S->keys.end());
+                R->children.erase(R->children.begin() + child_id - 1);
+
+                if(R->keys.size() < order)
+                    return R->DoSomething(order);
+
+                return FindRoot();
+            }
+            
+            InsertHere(R->keys.at(child_id - 1), order);
+            R->keys[child_id - 1] = S->keys.at(S->keys.size() - 1);
+            S->DeleteKey(S->keys.at(S->keys.size() - 1), order);
+        }
+    }
+
+    else{
+        int y = children.at(id + 1)->GetClosesKeyBig();
+        children.at(id + 1)->DeleteKey(y, order);
+        keys[id] = y;
+    }
+    return FindRoot();
+}
+
 /**
  * @brief Deletes key from BTree
  * 
@@ -325,66 +389,5 @@ Node* Node::DeleteKey(int key, int order){
     if(node == NULL)
         return FindRoot();
 
-    int id = 0;
-    for(; id < node->keys.size(); ++id)
-        if(key == node->keys.at(id))
-            break;
-
-    if(!node->children.size()){
-        node->keys.erase(node->keys.begin() + id);
-        
-        if(node->keys.size() >= order || node->parent == NULL)
-            return FindRoot();
-        
-        Node* R = node->parent;
-        int child_id = 0;
-        for(; child_id < R->children.size(); ++child_id)
-            if(R->children.at(child_id) == node)
-                break;
-
-        if(child_id < R->children.size() - 1){
-            Node* S = R->children.at(child_id + 1);
-            if(S->keys.size() == order){
-                node->keys.push_back(R->keys.at(child_id));
-                R->keys.erase(R->keys.begin() + child_id);
-                node->keys.insert(node->keys.begin() + order, S->keys.begin(), S->keys.end());
-                R->children.erase(R->children.begin() + child_id + 1);
-
-                if(R->keys.size() < order)
-                    return R->DoSomething(order);
-
-                return FindRoot();
-            }
-            node->InsertHere(R->keys.at(child_id), order);
-            R->keys[child_id] = S->keys.at(0);
-            S->DeleteKey(S->keys.at(0), order);
-        }
-        else{
-            Node* S = R->children.at(child_id - 1);
-
-            if(S->keys.size() == order){
-                node->keys.insert(node->keys.begin() ,R->keys.at(child_id - 1));
-                R->keys.erase(R->keys.begin() + child_id - 1);
-                node->keys.insert(node->keys.begin(), S->keys.begin(), S->keys.end());
-                R->children.erase(R->children.begin() + child_id - 1);
-
-                if(R->keys.size() < order)
-                    return R->DoSomething(order);
-
-                return FindRoot();
-            }
-            
-            node->InsertHere(R->keys.at(child_id - 1), order);
-            R->keys[child_id - 1] = S->keys.at(S->keys.size() - 1);
-            S->DeleteKey(S->keys.at(S->keys.size() - 1), order);
-        }
-    }
-
-    else{
-        int y = node->children.at(id + 1)->GetClosesKeyBig();
-        node->children.at(id + 1)->DeleteKey(y, order);
-        node->keys[id] = y;
-    }
-    
-    return FindRoot();
+    return node->SecretDelete(key, order);
 }
