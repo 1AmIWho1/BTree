@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: BTree Class Reference</title>
+<title>BTree: BTree Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,8 +21,9 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">My Project
+   <div id="projectname">BTree
    </div>
+   <div id="projectbrief">BTree with nodes containing min. keys t and max. 2t</div>
   </td>
  </tr>
  </tbody>
@@ -71,28 +72,172 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:abdd9c58050972934bb6923d0834f6691"><td class="memItemLeft" align="right" valign="top"><a id="abdd9c58050972934bb6923d0834f6691"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>BTree</b> (int t)</td></tr>
+<tr class="memitem:abdd9c58050972934bb6923d0834f6691"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBTree.html#abdd9c58050972934bb6923d0834f6691">BTree</a> (int t)</td></tr>
+<tr class="memdesc:abdd9c58050972934bb6923d0834f6691"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classBTree.html">BTree</a> object.  <a href="classBTree.html#abdd9c58050972934bb6923d0834f6691">More...</a><br /></td></tr>
 <tr class="separator:abdd9c58050972934bb6923d0834f6691"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae4ae71f030bbedcd56120c323482f738"><td class="memItemLeft" align="right" valign="top"><a id="ae4ae71f030bbedcd56120c323482f738"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>Search</b> (int key) const</td></tr>
+<tr class="memitem:ae4ae71f030bbedcd56120c323482f738"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBTree.html#ae4ae71f030bbedcd56120c323482f738">Search</a> (int key) const</td></tr>
+<tr class="memdesc:ae4ae71f030bbedcd56120c323482f738"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks, if key is containted in the <a class="el" href="classBTree.html">BTree</a>.  <a href="classBTree.html#ae4ae71f030bbedcd56120c323482f738">More...</a><br /></td></tr>
 <tr class="separator:ae4ae71f030bbedcd56120c323482f738"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa17aba464822992d9ae5b316b1875eae"><td class="memItemLeft" align="right" valign="top"><a id="aa17aba464822992d9ae5b316b1875eae"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>Insert</b> (int key)</td></tr>
+<tr class="memitem:aa17aba464822992d9ae5b316b1875eae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBTree.html#aa17aba464822992d9ae5b316b1875eae">Insert</a> (int key)</td></tr>
+<tr class="memdesc:aa17aba464822992d9ae5b316b1875eae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inserts new key into <a class="el" href="classBTree.html">BTree</a>.  <a href="classBTree.html#aa17aba464822992d9ae5b316b1875eae">More...</a><br /></td></tr>
 <tr class="separator:aa17aba464822992d9ae5b316b1875eae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af95d6398b5328e1bdb96acaad98c36ea"><td class="memItemLeft" align="right" valign="top"><a id="af95d6398b5328e1bdb96acaad98c36ea"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>Delete</b> (int key)</td></tr>
+<tr class="memitem:af95d6398b5328e1bdb96acaad98c36ea"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBTree.html#af95d6398b5328e1bdb96acaad98c36ea">Delete</a> (int key)</td></tr>
+<tr class="memdesc:af95d6398b5328e1bdb96acaad98c36ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deletes key from tree.  <a href="classBTree.html#af95d6398b5328e1bdb96acaad98c36ea">More...</a><br /></td></tr>
 <tr class="separator:af95d6398b5328e1bdb96acaad98c36ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2b37914d0d60641b4e99de5b89d30de1"><td class="memItemLeft" align="right" valign="top"><a id="a2b37914d0d60641b4e99de5b89d30de1"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>NewRoot</b> ()</td></tr>
-<tr class="separator:a2b37914d0d60641b4e99de5b89d30de1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6c0331a28325be5ac357914e3ef156e4"><td class="memItemLeft" align="right" valign="top"><a id="a6c0331a28325be5ac357914e3ef156e4"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>Report</b> () const</td></tr>
-<tr class="separator:a6c0331a28325be5ac357914e3ef156e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a08da3d2f127d830648135ae67f3edf10"><td class="memItemLeft" align="right" valign="top"><a id="a08da3d2f127d830648135ae67f3edf10"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>Statistic</b> ()</td></tr>
-<tr class="separator:a08da3d2f127d830648135ae67f3edf10"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afee759863df76b4c210b8b0333243569"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBTree.html#afee759863df76b4c210b8b0333243569">Output</a> () const</td></tr>
+<tr class="memdesc:afee759863df76b4c210b8b0333243569"><td class="mdescLeft">&#160;</td><td class="mdescRight">Outputs <a class="el" href="classBTree.html">BTree</a> to consol.  <a href="classBTree.html#afee759863df76b4c210b8b0333243569">More...</a><br /></td></tr>
+<tr class="separator:afee759863df76b4c210b8b0333243569"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0db1a21a2e6236e1b5febde86b207168"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBTree.html#a0db1a21a2e6236e1b5febde86b207168">Statistic</a> () const</td></tr>
+<tr class="memdesc:a0db1a21a2e6236e1b5febde86b207168"><td class="mdescLeft">&#160;</td><td class="mdescRight">Outputs brief information about <a class="el" href="classBTree.html">BTree</a>.  <a href="classBTree.html#a0db1a21a2e6236e1b5febde86b207168">More...</a><br /></td></tr>
+<tr class="separator:a0db1a21a2e6236e1b5febde86b207168"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="abdd9c58050972934bb6923d0834f6691"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abdd9c58050972934bb6923d0834f6691">&#9670;&nbsp;</a></span>BTree()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BTree::BTree </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>t</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Construct a new <a class="el" href="classBTree.html">BTree</a> object. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">t</td><td>order of <a class="el" href="classBTree.html">BTree</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="af95d6398b5328e1bdb96acaad98c36ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af95d6398b5328e1bdb96acaad98c36ea">&#9670;&nbsp;</a></span>Delete()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void BTree::Delete </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>key</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Deletes key from tree. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">key</td><td>key to delete </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aa17aba464822992d9ae5b316b1875eae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa17aba464822992d9ae5b316b1875eae">&#9670;&nbsp;</a></span>Insert()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void BTree::Insert </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>key</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Inserts new key into <a class="el" href="classBTree.html">BTree</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">key</td><td>key to be insterted </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="afee759863df76b4c210b8b0333243569"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afee759863df76b4c210b8b0333243569">&#9670;&nbsp;</a></span>Output()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void BTree::Output </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Outputs <a class="el" href="classBTree.html">BTree</a> to consol. </p>
+
+</div>
+</div>
+<a id="ae4ae71f030bbedcd56120c323482f738"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae4ae71f030bbedcd56120c323482f738">&#9670;&nbsp;</a></span>Search()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool BTree::Search </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>key</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks, if key is containted in the <a class="el" href="classBTree.html">BTree</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">key</td><td>key to look for </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if <a class="el" href="classBTree.html">BTree</a> contains key </dd>
+<dd>
+false if <a class="el" href="classBTree.html">BTree</a> doesn't contain key </dd></dl>
+
+</div>
+</div>
+<a id="a0db1a21a2e6236e1b5febde86b207168"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0db1a21a2e6236e1b5febde86b207168">&#9670;&nbsp;</a></span>Statistic()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void BTree::Statistic </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Outputs brief information about <a class="el" href="classBTree.html">BTree</a>. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="BTree_8h_source.html">BTree.h</a></li>
 <li>BTree.cpp</li>

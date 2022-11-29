@@ -6,11 +6,16 @@
 
 using namespace std;
 
-
+/**
+ * @brief 
+ * 
+ */
 class BTree{
 private:
     Node* root;
     int order;
+
+    void NewRoot();
 
 public:
     BTree(int t);
@@ -18,7 +23,6 @@ public:
     bool Search(int key) const;
     void Insert(int key);
     void Delete(int key);
-    void NewRoot();
-    void Report() const;
-    void Statistic();
+    void Output() const;
+    void Statistic() const;
 };

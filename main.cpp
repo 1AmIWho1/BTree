@@ -32,7 +32,7 @@ int main(){
             }
         }
         else if(type == 'o')
-            b.Report();
+            b.Output();
         else if(type == 's')
             b.Statistic();
     } while(type != 'e');

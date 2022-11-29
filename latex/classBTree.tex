@@ -3,27 +3,109 @@
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+\mbox{\hyperlink{classBTree_abdd9c58050972934bb6923d0834f6691}{B\+Tree}} (int t)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classBTree}{B\+Tree}} object. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classBTree_ae4ae71f030bbedcd56120c323482f738}{Search}} (int key) const
+\begin{DoxyCompactList}\small\item\em Checks, if key is containted in the \mbox{\hyperlink{classBTree}{B\+Tree}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classBTree_aa17aba464822992d9ae5b316b1875eae}{Insert}} (int key)
+\begin{DoxyCompactList}\small\item\em Inserts new key into \mbox{\hyperlink{classBTree}{B\+Tree}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classBTree_af95d6398b5328e1bdb96acaad98c36ea}{Delete}} (int key)
+\begin{DoxyCompactList}\small\item\em Deletes key from tree. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classBTree_afee759863df76b4c210b8b0333243569}{Output}} () const
+\begin{DoxyCompactList}\small\item\em Outputs \mbox{\hyperlink{classBTree}{B\+Tree}} to consol. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classBTree_a0db1a21a2e6236e1b5febde86b207168}{Statistic}} () const
+\begin{DoxyCompactList}\small\item\em Outputs brief information about \mbox{\hyperlink{classBTree}{B\+Tree}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{classBTree_abdd9c58050972934bb6923d0834f6691}\label{classBTree_abdd9c58050972934bb6923d0834f6691}} 
-{\bfseries B\+Tree} (int t)
-\item 
-\mbox{\Hypertarget{classBTree_ae4ae71f030bbedcd56120c323482f738}\label{classBTree_ae4ae71f030bbedcd56120c323482f738}} 
-bool {\bfseries Search} (int key) const
-\item 
-\mbox{\Hypertarget{classBTree_aa17aba464822992d9ae5b316b1875eae}\label{classBTree_aa17aba464822992d9ae5b316b1875eae}} 
-void {\bfseries Insert} (int key)
-\item 
+\index{BTree@{BTree}!BTree@{BTree}}
+\index{BTree@{BTree}!BTree@{BTree}}
+\doxysubsubsection{\texorpdfstring{BTree()}{BTree()}}
+{\footnotesize\ttfamily B\+Tree\+::\+B\+Tree (\begin{DoxyParamCaption}\item[{int}]{t }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{classBTree}{B\+Tree}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t} & order of \mbox{\hyperlink{classBTree}{B\+Tree}} \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
 \mbox{\Hypertarget{classBTree_af95d6398b5328e1bdb96acaad98c36ea}\label{classBTree_af95d6398b5328e1bdb96acaad98c36ea}} 
-void {\bfseries Delete} (int key)
-\item 
-\mbox{\Hypertarget{classBTree_a2b37914d0d60641b4e99de5b89d30de1}\label{classBTree_a2b37914d0d60641b4e99de5b89d30de1}} 
-void {\bfseries New\+Root} ()
-\item 
-\mbox{\Hypertarget{classBTree_a6c0331a28325be5ac357914e3ef156e4}\label{classBTree_a6c0331a28325be5ac357914e3ef156e4}} 
-void {\bfseries Report} () const
-\item 
-\mbox{\Hypertarget{classBTree_a08da3d2f127d830648135ae67f3edf10}\label{classBTree_a08da3d2f127d830648135ae67f3edf10}} 
-void {\bfseries Statistic} ()
-\end{DoxyCompactItemize}
+\index{BTree@{BTree}!Delete@{Delete}}
+\index{Delete@{Delete}!BTree@{BTree}}
+\doxysubsubsection{\texorpdfstring{Delete()}{Delete()}}
+{\footnotesize\ttfamily void B\+Tree\+::\+Delete (\begin{DoxyParamCaption}\item[{int}]{key }\end{DoxyParamCaption})}
+
+
+
+Deletes key from tree. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & key to delete \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classBTree_aa17aba464822992d9ae5b316b1875eae}\label{classBTree_aa17aba464822992d9ae5b316b1875eae}} 
+\index{BTree@{BTree}!Insert@{Insert}}
+\index{Insert@{Insert}!BTree@{BTree}}
+\doxysubsubsection{\texorpdfstring{Insert()}{Insert()}}
+{\footnotesize\ttfamily void B\+Tree\+::\+Insert (\begin{DoxyParamCaption}\item[{int}]{key }\end{DoxyParamCaption})}
+
+
+
+Inserts new key into \mbox{\hyperlink{classBTree}{B\+Tree}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & key to be insterted \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classBTree_afee759863df76b4c210b8b0333243569}\label{classBTree_afee759863df76b4c210b8b0333243569}} 
+\index{BTree@{BTree}!Output@{Output}}
+\index{Output@{Output}!BTree@{BTree}}
+\doxysubsubsection{\texorpdfstring{Output()}{Output()}}
+{\footnotesize\ttfamily void B\+Tree\+::\+Output (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Outputs \mbox{\hyperlink{classBTree}{B\+Tree}} to consol. 
+
+\mbox{\Hypertarget{classBTree_ae4ae71f030bbedcd56120c323482f738}\label{classBTree_ae4ae71f030bbedcd56120c323482f738}} 
+\index{BTree@{BTree}!Search@{Search}}
+\index{Search@{Search}!BTree@{BTree}}
+\doxysubsubsection{\texorpdfstring{Search()}{Search()}}
+{\footnotesize\ttfamily bool B\+Tree\+::\+Search (\begin{DoxyParamCaption}\item[{int}]{key }\end{DoxyParamCaption}) const}
+
+
+
+Checks, if key is containted in the \mbox{\hyperlink{classBTree}{B\+Tree}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & key to look for \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if \mbox{\hyperlink{classBTree}{B\+Tree}} contains key 
+
+false if \mbox{\hyperlink{classBTree}{B\+Tree}} doesn\textquotesingle{}t contain key 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classBTree_a0db1a21a2e6236e1b5febde86b207168}\label{classBTree_a0db1a21a2e6236e1b5febde86b207168}} 
+\index{BTree@{BTree}!Statistic@{Statistic}}
+\index{Statistic@{Statistic}!BTree@{BTree}}
+\doxysubsubsection{\texorpdfstring{Statistic()}{Statistic()}}
+{\footnotesize\ttfamily void B\+Tree\+::\+Statistic (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Outputs brief information about \mbox{\hyperlink{classBTree}{B\+Tree}}. 
+
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

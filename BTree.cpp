@@ -3,7 +3,11 @@
 #include <iostream>
 #include <vector>
 
-
+/**
+ * @brief Construct a new BTree object
+ * 
+ * @param t order of BTree
+ */
 BTree::BTree(int t){
     order = t;
     root = NULL;
@@ -13,6 +17,13 @@ BTree::~BTree(){
     root = NULL;
 }
 
+/**
+ * @brief Checks, if key is containted in the BTree
+ * 
+ * @param key key to look for
+ * @return true if BTree contains key
+ * @return false if BTree doesn't contain key
+ */
 bool BTree::Search(int key) const{
     return root->Search(key);
 }
@@ -25,6 +36,11 @@ void BTree::NewRoot(){
     root = new_root;
 }
 
+/**
+ * @brief Inserts new key into BTree
+ * 
+ * @param key key to be insterted
+ */
 void BTree::Insert(int key){
     if(root == NULL)
         root = new Node();
@@ -43,16 +59,28 @@ void BTree::Insert(int key){
     }
 }
 
+/**
+ * @brief Deletes key from tree
+ * 
+ * @param key key to delete
+ */
 void BTree::Delete(int key){
     root = root->DeleteKey(key, order);
 }
-
-void BTree::Report() const{
+/**
+ * @brief Outputs BTree to consol
+ * 
+ */
+void BTree::Output() const{
     cout << "BTree:" << endl;
-    root->Report();
+    root->Output();
 }
 
-void BTree::Statistic(){
+/**
+ * @brief Outputs brief information about BTree
+ * 
+ */
+void BTree::Statistic() const{
     cout << "BTree statistic:" << endl;
     root->Statistic();
 }

@@ -5,11 +5,19 @@
 
 using namespace std;
 
-
+/**
+ * @brief Construct a new Node object
+ * 
+ */
 Node::Node(){
     this->parent = NULL;
 }
 
+/**
+ * @brief Construct a new Node object with known parent
+ * 
+ * @param parent this Node's parent
+ */
 Node::Node(Node* parent){
     this->parent = parent;
 }
@@ -23,8 +31,8 @@ Node::~Node(){
 /**
  * @brief Recursively searches for Node which has key
  * 
- * @param n 
- * @return Node* 
+ * @param key key to search
+ * @return Node* pointer to Node, which contains key
  */
 Node* Node::SearchNode(int n){
     for(int key : keys)
@@ -53,19 +61,14 @@ void Node::SetParent(Node* parent){
 /**
  * @brief Checks, if tree obrains this key
  * 
- * @param n 
- * @return true 
- * @return false 
+ * @param key
+ * @return true if there's key in this Node or in this Node's children
+ * @return false if neither this Node or its children do not contan this key
  */
-bool Node::Search(int n){
-    return SearchNode(n) == NULL ? false : true;
+bool Node::Search(int key){
+    return SearchNode(key) == NULL ? false : true;
 }
 
-/**
- * @brief Counts number of keys in tree
- * 
- * @return int 
- */
 int Node::GetKeysCount() const{
     int res = keys.size();
     for(Node* child : children)
@@ -73,11 +76,6 @@ int Node::GetKeysCount() const{
     return res;
 }
 
-/**
- * @brief Counts number of Nodes in tree
- * 
- * @return int 
- */
 int Node::GetNodesCount() const{
     int res = 1;
     for(Node* child : children)
@@ -85,11 +83,6 @@ int Node::GetNodesCount() const{
     return res;
 }
 
-/**
- * @brief Gets height of tree
- * 
- * @return int 
- */
 int Node::GetHeight() const{
     if(!children.size())
         return 1;
@@ -117,7 +110,7 @@ void Node::Statistic(){
  * @brief Outputs BTree
  * 
  */
-void Node::Report() const{
+void Node::Output() const{
     /*if(parent != NULL)
         cout << "(" << parent->keys.at(0) << ") ";*/
     for(int key : keys)
@@ -127,14 +120,14 @@ void Node::Report() const{
         return;
     cout << "Children : " << children.size() << endl;
     for(Node* child : children)
-        child->Report();
+        child->Output();
 }
 
 /**
- * @brief 
+ * @brief Inserts another Node in this Node's children
  * 
- * @param child 
- * @param id 
+ * @param child Node to be inserted
+ * @param id where Node needs to be inserted
  */
 void Node::InsertChild(Node* child, int id){
     child->SetParent(this);
@@ -153,8 +146,8 @@ Node* Node::GetParent(){
 /**
  * @brief Checks if this Node is root
  * 
- * @return true 
- * @return false 
+ * @return true if this Node is root
+ * @return false if this Node isn't root
  */
 bool Node::IsRoot() const{
     return parent == NULL;
@@ -188,11 +181,6 @@ bool Node::InsertHere(int key, int order){
     return IsOverFlow(order);
 }
 
-/**
- * @brief Looks for BTree root
- * 
- * @return Node* 
- */
 Node* Node::FindRoot(){
     if(parent == NULL)
         return this;

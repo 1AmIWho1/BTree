@@ -4,7 +4,10 @@
 
 using namespace std;
 
-
+/**
+ * @brief Contains pointer to its parent, keys and child Nodes.
+ * 
+ */
 class Node{
 private:
     Node* parent;
@@ -25,7 +28,7 @@ public:
     Node(Node* parent);
     ~Node();
     bool Search(int n);
-    void Report() const;
+    void Output() const;
 
     void InsertChild(Node* child, int id);
     void SetParent(Node* parent);

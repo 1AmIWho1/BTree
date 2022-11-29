@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: Node Class Reference</title>
+<title>BTree: Node Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,8 +21,9 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">My Project
+   <div id="projectname">BTree
    </div>
+   <div id="projectbrief">BTree with nodes containing min. keys t and max. 2t</div>
   </td>
  </tr>
  </tbody>
@@ -68,49 +69,438 @@ $(function() {
 <div class="title">Node Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Contains pointer to its parent, keys and child Nodes.  
+ <a href="classNode.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="Node_8h_source.html">Node.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a46ce276a945dec5084d31c5391be63c8"><td class="memItemLeft" align="right" valign="top"><a id="a46ce276a945dec5084d31c5391be63c8"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Node</b> (<a class="el" href="classNode.html">Node</a> *parent)</td></tr>
+<tr class="memitem:ad7a34779cad45d997bfd6d3d8043c75f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNode.html#ad7a34779cad45d997bfd6d3d8043c75f">Node</a> ()</td></tr>
+<tr class="memdesc:ad7a34779cad45d997bfd6d3d8043c75f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classNode.html" title="Contains pointer to its parent, keys and child Nodes.">Node</a> object.  <a href="classNode.html#ad7a34779cad45d997bfd6d3d8043c75f">More...</a><br /></td></tr>
+<tr class="separator:ad7a34779cad45d997bfd6d3d8043c75f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46ce276a945dec5084d31c5391be63c8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNode.html#a46ce276a945dec5084d31c5391be63c8">Node</a> (<a class="el" href="classNode.html">Node</a> *parent)</td></tr>
+<tr class="memdesc:a46ce276a945dec5084d31c5391be63c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classNode.html" title="Contains pointer to its parent, keys and child Nodes.">Node</a> object with known parent.  <a href="classNode.html#a46ce276a945dec5084d31c5391be63c8">More...</a><br /></td></tr>
 <tr class="separator:a46ce276a945dec5084d31c5391be63c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abc8be8a0ee6e00ce49068bf054b4d286"><td class="memItemLeft" align="right" valign="top"><a id="abc8be8a0ee6e00ce49068bf054b4d286"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>Search</b> (int n)</td></tr>
+<tr class="memitem:abc8be8a0ee6e00ce49068bf054b4d286"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNode.html#abc8be8a0ee6e00ce49068bf054b4d286">Search</a> (int n)</td></tr>
+<tr class="memdesc:abc8be8a0ee6e00ce49068bf054b4d286"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks, if tree obrains this key.  <a href="classNode.html#abc8be8a0ee6e00ce49068bf054b4d286">More...</a><br /></td></tr>
 <tr class="separator:abc8be8a0ee6e00ce49068bf054b4d286"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a230360c2ec13be4bfb9010f919f72b2e"><td class="memItemLeft" align="right" valign="top"><a id="a230360c2ec13be4bfb9010f919f72b2e"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>Report</b> () const</td></tr>
-<tr class="separator:a230360c2ec13be4bfb9010f919f72b2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6377db48f0483eab4f2cb1ce2c1fb9af"><td class="memItemLeft" align="right" valign="top"><a id="a6377db48f0483eab4f2cb1ce2c1fb9af"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>InsertChild</b> (<a class="el" href="classNode.html">Node</a> *child, int id)</td></tr>
+<tr class="memitem:a6e68b210db4a2f84327c7d04cf1ee954"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNode.html#a6e68b210db4a2f84327c7d04cf1ee954">Output</a> () const</td></tr>
+<tr class="memdesc:a6e68b210db4a2f84327c7d04cf1ee954"><td class="mdescLeft">&#160;</td><td class="mdescRight">Outputs <a class="el" href="classBTree.html">BTree</a>.  <a href="classNode.html#a6e68b210db4a2f84327c7d04cf1ee954">More...</a><br /></td></tr>
+<tr class="separator:a6e68b210db4a2f84327c7d04cf1ee954"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6377db48f0483eab4f2cb1ce2c1fb9af"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNode.html#a6377db48f0483eab4f2cb1ce2c1fb9af">InsertChild</a> (<a class="el" href="classNode.html">Node</a> *child, int id)</td></tr>
+<tr class="memdesc:a6377db48f0483eab4f2cb1ce2c1fb9af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inserts another <a class="el" href="classNode.html" title="Contains pointer to its parent, keys and child Nodes.">Node</a> in this <a class="el" href="classNode.html" title="Contains pointer to its parent, keys and child Nodes.">Node</a>'s children.  <a href="classNode.html#a6377db48f0483eab4f2cb1ce2c1fb9af">More...</a><br /></td></tr>
 <tr class="separator:a6377db48f0483eab4f2cb1ce2c1fb9af"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a50723866b36f214de7d3544aaee3d327"><td class="memItemLeft" align="right" valign="top"><a id="a50723866b36f214de7d3544aaee3d327"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>SetParent</b> (<a class="el" href="classNode.html">Node</a> *parent)</td></tr>
+<tr class="memitem:a50723866b36f214de7d3544aaee3d327"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNode.html#a50723866b36f214de7d3544aaee3d327">SetParent</a> (<a class="el" href="classNode.html">Node</a> *parent)</td></tr>
+<tr class="memdesc:a50723866b36f214de7d3544aaee3d327"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets new parent for node.  <a href="classNode.html#a50723866b36f214de7d3544aaee3d327">More...</a><br /></td></tr>
 <tr class="separator:a50723866b36f214de7d3544aaee3d327"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a21659b0d9c83aa8eeeb2c61ac42fac68"><td class="memItemLeft" align="right" valign="top"><a id="a21659b0d9c83aa8eeeb2c61ac42fac68"></a>
-<a class="el" href="classNode.html">Node</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>GetParent</b> ()</td></tr>
+<tr class="memitem:a21659b0d9c83aa8eeeb2c61ac42fac68"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNode.html">Node</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNode.html#a21659b0d9c83aa8eeeb2c61ac42fac68">GetParent</a> ()</td></tr>
+<tr class="memdesc:a21659b0d9c83aa8eeeb2c61ac42fac68"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns parent of <a class="el" href="classNode.html" title="Contains pointer to its parent, keys and child Nodes.">Node</a>.  <a href="classNode.html#a21659b0d9c83aa8eeeb2c61ac42fac68">More...</a><br /></td></tr>
 <tr class="separator:a21659b0d9c83aa8eeeb2c61ac42fac68"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a111542fae433c24fa889ab3e039ad247"><td class="memItemLeft" align="right" valign="top"><a id="a111542fae433c24fa889ab3e039ad247"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>IsOverFlow</b> (int order) const</td></tr>
+<tr class="memitem:a111542fae433c24fa889ab3e039ad247"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNode.html#a111542fae433c24fa889ab3e039ad247">IsOverFlow</a> (int order) const</td></tr>
+<tr class="memdesc:a111542fae433c24fa889ab3e039ad247"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if this <a class="el" href="classNode.html" title="Contains pointer to its parent, keys and child Nodes.">Node</a> has more keys than it should.  <a href="classNode.html#a111542fae433c24fa889ab3e039ad247">More...</a><br /></td></tr>
 <tr class="separator:a111542fae433c24fa889ab3e039ad247"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa17b1ee6a4c9eeaf534ef3b52ff7786c"><td class="memItemLeft" align="right" valign="top"><a id="aa17b1ee6a4c9eeaf534ef3b52ff7786c"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>IsRoot</b> () const</td></tr>
+<tr class="memitem:aa17b1ee6a4c9eeaf534ef3b52ff7786c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNode.html#aa17b1ee6a4c9eeaf534ef3b52ff7786c">IsRoot</a> () const</td></tr>
+<tr class="memdesc:aa17b1ee6a4c9eeaf534ef3b52ff7786c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if this <a class="el" href="classNode.html" title="Contains pointer to its parent, keys and child Nodes.">Node</a> is root.  <a href="classNode.html#aa17b1ee6a4c9eeaf534ef3b52ff7786c">More...</a><br /></td></tr>
 <tr class="separator:aa17b1ee6a4c9eeaf534ef3b52ff7786c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4d7dcde12bcd6c0ee804369e013f95db"><td class="memItemLeft" align="right" valign="top"><a id="a4d7dcde12bcd6c0ee804369e013f95db"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>InsertHere</b> (int key, int order)</td></tr>
+<tr class="memitem:a4d7dcde12bcd6c0ee804369e013f95db"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNode.html#a4d7dcde12bcd6c0ee804369e013f95db">InsertHere</a> (int key, int order)</td></tr>
+<tr class="memdesc:a4d7dcde12bcd6c0ee804369e013f95db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inserts key in this <a class="el" href="classNode.html" title="Contains pointer to its parent, keys and child Nodes.">Node</a> and checks if there's overflow in this <a class="el" href="classNode.html" title="Contains pointer to its parent, keys and child Nodes.">Node</a>.  <a href="classNode.html#a4d7dcde12bcd6c0ee804369e013f95db">More...</a><br /></td></tr>
 <tr class="separator:a4d7dcde12bcd6c0ee804369e013f95db"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a11211d0c695f2bd8022c96ec7accff89"><td class="memItemLeft" align="right" valign="top"><a id="a11211d0c695f2bd8022c96ec7accff89"></a>
-<a class="el" href="classNode.html">Node</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>WhereToInsert</b> (int key)</td></tr>
+<tr class="memitem:a11211d0c695f2bd8022c96ec7accff89"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNode.html">Node</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNode.html#a11211d0c695f2bd8022c96ec7accff89">WhereToInsert</a> (int key)</td></tr>
+<tr class="memdesc:a11211d0c695f2bd8022c96ec7accff89"><td class="mdescLeft">&#160;</td><td class="mdescRight">Looks for <a class="el" href="classNode.html" title="Contains pointer to its parent, keys and child Nodes.">Node</a> in which key should be.  <a href="classNode.html#a11211d0c695f2bd8022c96ec7accff89">More...</a><br /></td></tr>
 <tr class="separator:a11211d0c695f2bd8022c96ec7accff89"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5a2e85bb766e8ff7a62b2082c27dd745"><td class="memItemLeft" align="right" valign="top"><a id="a5a2e85bb766e8ff7a62b2082c27dd745"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>SplitOverFlowChild</b> (int order)</td></tr>
+<tr class="memitem:a5a2e85bb766e8ff7a62b2082c27dd745"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNode.html#a5a2e85bb766e8ff7a62b2082c27dd745">SplitOverFlowChild</a> (int order)</td></tr>
+<tr class="memdesc:a5a2e85bb766e8ff7a62b2082c27dd745"><td class="mdescLeft">&#160;</td><td class="mdescRight">Splits overflowed child of <a class="el" href="classNode.html" title="Contains pointer to its parent, keys and child Nodes.">Node</a>.  <a href="classNode.html#a5a2e85bb766e8ff7a62b2082c27dd745">More...</a><br /></td></tr>
 <tr class="separator:a5a2e85bb766e8ff7a62b2082c27dd745"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a04b1124e836a5292f0ea3b28929477dc"><td class="memItemLeft" align="right" valign="top"><a id="a04b1124e836a5292f0ea3b28929477dc"></a>
-<a class="el" href="classNode.html">Node</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>DeleteKey</b> (int key, int order)</td></tr>
+<tr class="memitem:a04b1124e836a5292f0ea3b28929477dc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNode.html">Node</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNode.html#a04b1124e836a5292f0ea3b28929477dc">DeleteKey</a> (int key, int order)</td></tr>
+<tr class="memdesc:a04b1124e836a5292f0ea3b28929477dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deletes key from <a class="el" href="classBTree.html">BTree</a>.  <a href="classNode.html#a04b1124e836a5292f0ea3b28929477dc">More...</a><br /></td></tr>
 <tr class="separator:a04b1124e836a5292f0ea3b28929477dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9beb2e869b80e3967d306ff79cc7e504"><td class="memItemLeft" align="right" valign="top"><a id="a9beb2e869b80e3967d306ff79cc7e504"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>Statistic</b> ()</td></tr>
+<tr class="memitem:a9beb2e869b80e3967d306ff79cc7e504"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNode.html#a9beb2e869b80e3967d306ff79cc7e504">Statistic</a> ()</td></tr>
+<tr class="memdesc:a9beb2e869b80e3967d306ff79cc7e504"><td class="mdescLeft">&#160;</td><td class="mdescRight">Outputs information about <a class="el" href="classBTree.html">BTree</a>.  <a href="classNode.html#a9beb2e869b80e3967d306ff79cc7e504">More...</a><br /></td></tr>
 <tr class="separator:a9beb2e869b80e3967d306ff79cc7e504"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Contains pointer to its parent, keys and child Nodes. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ad7a34779cad45d997bfd6d3d8043c75f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad7a34779cad45d997bfd6d3d8043c75f">&#9670;&nbsp;</a></span>Node() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Node::Node </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Construct a new <a class="el" href="classNode.html" title="Contains pointer to its parent, keys and child Nodes.">Node</a> object. </p>
+
+</div>
+</div>
+<a id="a46ce276a945dec5084d31c5391be63c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a46ce276a945dec5084d31c5391be63c8">&#9670;&nbsp;</a></span>Node() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Node::Node </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classNode.html">Node</a> *&#160;</td>
+          <td class="paramname"><em>parent</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Construct a new <a class="el" href="classNode.html" title="Contains pointer to its parent, keys and child Nodes.">Node</a> object with known parent. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parent</td><td>this <a class="el" href="classNode.html" title="Contains pointer to its parent, keys and child Nodes.">Node</a>'s parent </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a04b1124e836a5292f0ea3b28929477dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a04b1124e836a5292f0ea3b28929477dc">&#9670;&nbsp;</a></span>DeleteKey()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNode.html">Node</a> * Node::DeleteKey </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>key</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>order</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Deletes key from <a class="el" href="classBTree.html">BTree</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">key</td><td></td></tr>
+    <tr><td class="paramname">order</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Node* </dd></dl>
+
+</div>
+</div>
+<a id="a21659b0d9c83aa8eeeb2c61ac42fac68"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a21659b0d9c83aa8eeeb2c61ac42fac68">&#9670;&nbsp;</a></span>GetParent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNode.html">Node</a> * Node::GetParent </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns parent of <a class="el" href="classNode.html" title="Contains pointer to its parent, keys and child Nodes.">Node</a>. </p>
+<dl class="section return"><dt>Returns</dt><dd>Node* </dd></dl>
+
+</div>
+</div>
+<a id="a6377db48f0483eab4f2cb1ce2c1fb9af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6377db48f0483eab4f2cb1ce2c1fb9af">&#9670;&nbsp;</a></span>InsertChild()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Node::InsertChild </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classNode.html">Node</a> *&#160;</td>
+          <td class="paramname"><em>child</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>id</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Inserts another <a class="el" href="classNode.html" title="Contains pointer to its parent, keys and child Nodes.">Node</a> in this <a class="el" href="classNode.html" title="Contains pointer to its parent, keys and child Nodes.">Node</a>'s children. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">child</td><td><a class="el" href="classNode.html" title="Contains pointer to its parent, keys and child Nodes.">Node</a> to be inserted </td></tr>
+    <tr><td class="paramname">id</td><td>where <a class="el" href="classNode.html" title="Contains pointer to its parent, keys and child Nodes.">Node</a> needs to be inserted </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a4d7dcde12bcd6c0ee804369e013f95db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d7dcde12bcd6c0ee804369e013f95db">&#9670;&nbsp;</a></span>InsertHere()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Node::InsertHere </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>key</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>order</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Inserts key in this <a class="el" href="classNode.html" title="Contains pointer to its parent, keys and child Nodes.">Node</a> and checks if there's overflow in this <a class="el" href="classNode.html" title="Contains pointer to its parent, keys and child Nodes.">Node</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">key</td><td></td></tr>
+    <tr><td class="paramname">order</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true </dd>
+<dd>
+false </dd></dl>
+
+</div>
+</div>
+<a id="a111542fae433c24fa889ab3e039ad247"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a111542fae433c24fa889ab3e039ad247">&#9670;&nbsp;</a></span>IsOverFlow()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Node::IsOverFlow </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>order</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks if this <a class="el" href="classNode.html" title="Contains pointer to its parent, keys and child Nodes.">Node</a> has more keys than it should. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">order</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true </dd>
+<dd>
+false </dd></dl>
+
+</div>
+</div>
+<a id="aa17b1ee6a4c9eeaf534ef3b52ff7786c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa17b1ee6a4c9eeaf534ef3b52ff7786c">&#9670;&nbsp;</a></span>IsRoot()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Node::IsRoot </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks if this <a class="el" href="classNode.html" title="Contains pointer to its parent, keys and child Nodes.">Node</a> is root. </p>
+<dl class="section return"><dt>Returns</dt><dd>true if this <a class="el" href="classNode.html" title="Contains pointer to its parent, keys and child Nodes.">Node</a> is root </dd>
+<dd>
+false if this <a class="el" href="classNode.html" title="Contains pointer to its parent, keys and child Nodes.">Node</a> isn't root </dd></dl>
+
+</div>
+</div>
+<a id="a6e68b210db4a2f84327c7d04cf1ee954"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e68b210db4a2f84327c7d04cf1ee954">&#9670;&nbsp;</a></span>Output()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Node::Output </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Outputs <a class="el" href="classBTree.html">BTree</a>. </p>
+
+</div>
+</div>
+<a id="abc8be8a0ee6e00ce49068bf054b4d286"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc8be8a0ee6e00ce49068bf054b4d286">&#9670;&nbsp;</a></span>Search()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Node::Search </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>key</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks, if tree obrains this key. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">key</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if there's key in this <a class="el" href="classNode.html" title="Contains pointer to its parent, keys and child Nodes.">Node</a> or in this <a class="el" href="classNode.html" title="Contains pointer to its parent, keys and child Nodes.">Node</a>'s children </dd>
+<dd>
+false if neither this <a class="el" href="classNode.html" title="Contains pointer to its parent, keys and child Nodes.">Node</a> or its children do not contan this key </dd></dl>
+
+</div>
+</div>
+<a id="a50723866b36f214de7d3544aaee3d327"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a50723866b36f214de7d3544aaee3d327">&#9670;&nbsp;</a></span>SetParent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Node::SetParent </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classNode.html">Node</a> *&#160;</td>
+          <td class="paramname"><em>parent</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets new parent for node. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parent</td><td>New parent </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a5a2e85bb766e8ff7a62b2082c27dd745"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5a2e85bb766e8ff7a62b2082c27dd745">&#9670;&nbsp;</a></span>SplitOverFlowChild()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Node::SplitOverFlowChild </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>order</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Splits overflowed child of <a class="el" href="classNode.html" title="Contains pointer to its parent, keys and child Nodes.">Node</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">order</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a9beb2e869b80e3967d306ff79cc7e504"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9beb2e869b80e3967d306ff79cc7e504">&#9670;&nbsp;</a></span>Statistic()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Node::Statistic </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Outputs information about <a class="el" href="classBTree.html">BTree</a>. </p>
+
+</div>
+</div>
+<a id="a11211d0c695f2bd8022c96ec7accff89"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a11211d0c695f2bd8022c96ec7accff89">&#9670;&nbsp;</a></span>WhereToInsert()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNode.html">Node</a> * Node::WhereToInsert </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>key</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Looks for <a class="el" href="classNode.html" title="Contains pointer to its parent, keys and child Nodes.">Node</a> in which key should be. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">key</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Node* </dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="Node_8h_source.html">Node.h</a></li>
 <li>Node.cpp</li>
