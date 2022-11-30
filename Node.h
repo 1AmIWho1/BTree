@@ -41,6 +41,6 @@ public:
     Node* WhereToInsert(int key);
     void SplitOverFlowChild(int order);
 
-    Node* DeleteKey(int key, int order);
+    Node* Delete(int key, int order);
     void Statistic();
 };

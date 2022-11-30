@@ -6,6 +6,34 @@
 
 using namespace std;
 
+/*! \mainpage BTree
+\section Introduction
+Simple console application
+
+\section Fast Start
+For creating BT you should use standart constructor
+\code{.cpp}
+Expression expression = Expression("2+2");
+\endcode
+Then you can immediately get the answer
+\code{.cpp}
+float result = expression.do_calculations();
+\endcode
+
+\section Details
+You can transform your expression to postfix or infix using these commands:
+\code{.cpp}
+expression.transfer_to_infix();
+expression.transfer_to_postfix();
+\endcode
+And, more importantly, you can print both infix and postfix
+\code{.cpp}
+expression.print_infix();
+expression.print_postfix();
+\endcode
+*/
+
+
 
 int main(){
     ifstream file;

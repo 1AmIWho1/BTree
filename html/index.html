@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>BTree: Main Page</title>
+<title>BTree: Expressions</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -61,11 +61,25 @@ $(function() {
 </iframe>
 </div>
 
-<div class="header">
+<div class="PageDoc"><div class="header">
   <div class="headertitle">
-<div class="title">BTree Documentation</div>  </div>
+<div class="title">Expressions </div>  </div>
 </div><!--header-->
 <div class="contents">
+<div class="textblock"><h1><a class="anchor" id="Introduction"></a>
+Introduction</h1>
+<p>This is a really simple soft for calculating simple expressions, downbelow you can find instructions for fast start.</p>
+<h1><a class="anchor" id="Fast"></a>
+Start</h1>
+<p>For creating Expression you should use standart constructor </p><div class="fragment"><div class="line">Expression expression = Expression(<span class="stringliteral">&quot;2+2&quot;</span>);</div>
+</div><!-- fragment --><p> Then you can immediately get the answer </p><div class="fragment"><div class="line"><span class="keywordtype">float</span> result = expression.do_calculations();</div>
+</div><!-- fragment --><h1><a class="anchor" id="Details"></a>
+Details</h1>
+<p>You can transform your expression to postfix or infix using these commands: </p><div class="fragment"><div class="line">expression.transfer_to_infix();</div>
+<div class="line">expression.transfer_to_postfix();</div>
+</div><!-- fragment --><p> And, more importantly, you can print both infix and postfix </p><div class="fragment"><div class="line">expression.print_infix();</div>
+<div class="line">expression.print_postfix();</div>
+</div><!-- fragment --> </div></div><!-- PageDoc -->
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

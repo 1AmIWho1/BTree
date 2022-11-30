@@ -1,5 +1,14 @@
 \hypertarget{classBTree}{}\doxysection{B\+Tree Class Reference}
 \label{classBTree}\index{BTree@{BTree}}
+
+
+Class used for storing order and pointer to root of \mbox{\hyperlink{classBTree}{B\+Tree}}.  
+
+
+
+
+{\ttfamily \#include $<$B\+Tree.\+h$>$}
+
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -13,8 +22,16 @@ void \mbox{\hyperlink{classBTree_af95d6398b5328e1bdb96acaad98c36ea}{Delete}} (in
 \begin{DoxyCompactList}\small\item\em Deletes key from tree. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classBTree_afee759863df76b4c210b8b0333243569}{Output}} () const
 \begin{DoxyCompactList}\small\item\em Outputs \mbox{\hyperlink{classBTree}{B\+Tree}} to consol. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBTree_a8426f43be107ac33a43ef087cbedad5a}\label{classBTree_a8426f43be107ac33a43ef087cbedad5a}} 
+void {\bfseries Output\+To\+File} (string file\+\_\+name, bool append) const
+\item 
 void \mbox{\hyperlink{classBTree_a0db1a21a2e6236e1b5febde86b207168}{Statistic}} () const
 \begin{DoxyCompactList}\small\item\em Outputs brief information about \mbox{\hyperlink{classBTree}{B\+Tree}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class used for storing order and pointer to root of \mbox{\hyperlink{classBTree}{B\+Tree}}. 
+
 
 
 \doxysubsection{Constructor \& Destructor Documentation}

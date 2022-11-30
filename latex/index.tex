@@ -1,0 +1,22 @@
+\hypertarget{index_Introduction}{}\doxysection{Introduction}\label{index_Introduction}
+This is a really simple soft for calculating simple expressions, downbelow you can find instructions for fast start.\hypertarget{index_Fast}{}\doxysection{Start}\label{index_Fast}
+For creating Expression you should use standart constructor 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Expression expression = Expression(\textcolor{stringliteral}{"2+2"});}
+\end{DoxyCode}
+ Then you can immediately get the answer 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{float} result = expression.do\_calculations();}
+\end{DoxyCode}
+\hypertarget{index_Details}{}\doxysection{Details}\label{index_Details}
+You can transform your expression to postfix or infix using these commands\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{expression.transfer\_to\_infix();}
+\DoxyCodeLine{expression.transfer\_to\_postfix();}
+\end{DoxyCode}
+ And, more importantly, you can print both infix and postfix 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{expression.print\_infix();}
+\DoxyCodeLine{expression.print\_postfix();}
+\end{DoxyCode}
+ 

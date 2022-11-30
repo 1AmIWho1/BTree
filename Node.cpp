@@ -345,7 +345,7 @@ Node* Node::SecretDelete(int key, int order){
             }
             InsertHere(R->keys.at(child_id), order);
             R->keys[child_id] = S->keys.at(0);
-            S->DeleteKey(S->keys.at(0), order);
+            S->Delete(S->keys.at(0), order);
         }
         else{
             Node* S = R->children.at(child_id - 1);
@@ -364,13 +364,13 @@ Node* Node::SecretDelete(int key, int order){
             
             InsertHere(R->keys.at(child_id - 1), order);
             R->keys[child_id - 1] = S->keys.at(S->keys.size() - 1);
-            S->DeleteKey(S->keys.at(S->keys.size() - 1), order);
+            S->Delete(S->keys.at(S->keys.size() - 1), order);
         }
     }
 
     else{
         int y = children.at(id + 1)->GetClosesKeyBig();
-        children.at(id + 1)->DeleteKey(y, order);
+        children.at(id + 1)->Delete(y, order);
         keys[id] = y;
     }
     return FindRoot();
@@ -383,7 +383,7 @@ Node* Node::SecretDelete(int key, int order){
  * @param order 
  * @return Node* 
  */
-Node* Node::DeleteKey(int key, int order){
+Node* Node::Delete(int key, int order){
     Node* node = SearchNode(key);
 
     if(node == NULL)

@@ -8,7 +8,7 @@
 using namespace std;
 
 /**
- * @brief 
+ * @brief Class used for storing order and pointer to root of BTree. 
  * 
  */
 class BTree{

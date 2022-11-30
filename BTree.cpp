@@ -68,7 +68,7 @@ void BTree::Insert(int key){
  * @param key key to delete
  */
 void BTree::Delete(int key){
-    root = root->DeleteKey(key, order);
+    root = root->Delete(key, order);
 }
 /**
  * @brief Outputs BTree to consol
