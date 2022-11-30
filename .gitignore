@@ -69,3 +69,8 @@
 .vscode
 
 *.o
+
+*.out
+
+output.txt
+

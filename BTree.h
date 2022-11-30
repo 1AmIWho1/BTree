@@ -3,6 +3,7 @@
 #include "Node.h"
 
 #include <vector>
+#include <string>
 
 using namespace std;
 
@@ -24,5 +25,6 @@ public:
     void Insert(int key);
     void Delete(int key);
     void Output() const;
+    void OutputToFile(string file_name, bool append) const;
     void Statistic() const;
 };

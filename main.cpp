@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <fstream>
+#include <string>
 
 using namespace std;
 
@@ -33,6 +34,12 @@ int main(){
         }
         else if(type == 'o')
             b.Output();
+        else if(type == 'f'){
+            bool append;
+            string file_name;
+            file >> append >> file_name;
+            b.OutputToFile(file_name, append);
+        }
         else if(type == 's')
             b.Statistic();
     } while(type != 'e');

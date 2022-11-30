@@ -2,6 +2,9 @@
 
 #include <iostream>
 #include <vector>
+#include <string>
+#include <fstream>
+
 
 /**
  * @brief Construct a new BTree object
@@ -74,6 +77,17 @@ void BTree::Delete(int key){
 void BTree::Output() const{
     cout << "BTree:" << endl;
     root->Output();
+}
+
+void BTree::OutputToFile(string file_name, bool append) const{
+    ofstream file;
+    if(append){
+        file.open(file_name, ios_base::app);
+        file << endl;
+    }
+    else
+        file.open(file_name);
+    file << "test";
 }
 
 /**
