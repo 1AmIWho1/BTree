@@ -1,6 +1,7 @@
 #pragma once
 
 #include <vector>
+#include <string>
 
 using namespace std;
 
@@ -17,9 +18,7 @@ private:
     Node* SearchNode(int n);
     Node* FindRoot();
     int GetClosesKeyBig();
-    int GetKeysCount() const;
-    int GetNodesCount() const;
-    int GetHeight() const;
+    
     Node* SecretDelete(int key, int order);
 
     Node* DoSomething(int order);
@@ -29,7 +28,10 @@ public:
     Node(Node* parent);
     ~Node();
     bool Search(int n);
-    void Output() const;
+    string GetString() const;
+    int GetKeysCount() const;
+    int GetNodesCount() const;
+    int GetHeight() const;
 
     void InsertChild(Node* child, int id);
     void SetParent(Node* parent);
@@ -42,5 +44,4 @@ public:
     void SplitOverFlowChild(int order);
 
     Node* Delete(int key, int order);
-    void Statistic();
 };

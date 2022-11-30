@@ -8,31 +8,113 @@ using namespace std;
 
 /*! \mainpage BTree
 \section Introduction
-Simple console application
 
-\section Fast Start
-For creating BT you should use standart constructor
+For creating BTree you should use standart constructor. This BTree implementation has minimum t keys in every Node, and maximum 2t. t is order of BTree.
+
+Here is a simple example of inserting keys in BTree:
+
 \code{.cpp}
-Expression expression = Expression("2+2");
-\endcode
-Then you can immediately get the answer
-\code{.cpp}
-float result = expression.do_calculations();
+BTree b = BTree(2);
+b.Insert(3);
+b.Insert(22);
+b.Insert(10);
+b.Insert(2);
+b.Insert(17);
+b.Insert(5);
 \endcode
 
-\section Details
-You can transform your expression to postfix or infix using these commands:
+Then you can output BTree to consol:
+
 \code{.cpp}
-expression.transfer_to_infix();
-expression.transfer_to_postfix();
+b.Output();
 \endcode
-And, more importantly, you can print both infix and postfix
+
+\code{.unparsed}
+BTree:
+10 
+Children : 2
+2 3 5 
+17 22
+\endcode
+
+And also see some statistic:
+
 \code{.cpp}
-expression.print_infix();
-expression.print_postfix();
+b.Statistic();
+\endcode
+
+\code{.unparsed}
+BTree statistic:
+Nodes: 3
+Keys: 6
+Height: 2
+\endcode
+
+Then you can try deleteing some elements, for example:
+
+\code{.cpp}
+b.Delete(22);
+b.Output();
+\endcode
+
+\code{.unparsed}
+BTree:
+5 
+Children : 2
+2 3 
+10 17 
+\endcode
+
+You can also see, if this BTree contains some key:
+
+\code{.cpp}
+cout << string(b.Search(10) ? "BTree contains 10!" : "BTree doesn't contain 10") << endl;
+cout << string(b.Search(12) ? "BTree contains 12!" : "BTree doesn't contain 12") << endl;
+\endcode
+
+\code{.unparsed}
+BTree contains 10!
+BTree doesn't contain 12
+\endcode
+
+And finally you can write your BTree to file, using method OutputToFile("output.txt", true), where second argument is used to indicate whether you want to append otuput to file or rewrite it.
+
+\code{.cpp}
+b.OutputToFile("output.txt", false);
+\endcode
+
+output.txt will look the same as previous BTree.Output().
+And here's all code used in this example:
+
+\code{.cpp}
+#include "BTree.h"
+
+#include <iostream>
+#include <fstream>
+#include <string>
+
+using namespace std;
+
+
+int main(){
+    BTree b = BTree(2);
+    b.Insert(3);
+    b.Insert(22);
+    b.Insert(10);
+    b.Insert(2);
+    b.Insert(17);
+    b.Insert(5);
+    b.Output();
+    b.Statistic();
+    b.Delete(22);
+    b.Output();
+    cout << string(b.Search(10) ? "BTree contains 10!" : "BTree doesn't contain 10") << endl;
+    cout << string(b.Search(12) ? "BTree contains 12!" : "BTree doesn't contain 12") << endl;
+    b.OutputToFile("output.txt", false);
+    return 0;
+}
 \endcode
 */
-
 
 
 int main(){

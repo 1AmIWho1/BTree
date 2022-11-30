@@ -28,12 +28,6 @@ Node::~Node(){
         node = NULL;
 }
 
-/**
- * @brief Recursively searches for Node which has key
- * 
- * @param key key to search
- * @return Node* pointer to Node, which contains key
- */
 Node* Node::SearchNode(int n){
     for(int key : keys)
         if(key == n)
@@ -52,7 +46,7 @@ Node* Node::SearchNode(int n){
 /**
  * @brief Sets new parent for node
  * 
- * @param parent New parent
+ * @param parent new parent
  */
 void Node::SetParent(Node* parent){
     this->parent = parent;
@@ -61,7 +55,7 @@ void Node::SetParent(Node* parent){
 /**
  * @brief Checks, if tree obrains this key
  * 
- * @param key
+ * @param key key to look for
  * @return true if there's key in this Node or in this Node's children
  * @return false if neither this Node or its children do not contan this key
  */
@@ -69,6 +63,11 @@ bool Node::Search(int key){
     return SearchNode(key) == NULL ? false : true;
 }
 
+/**
+ * @brief Counts keys in current and all children
+ * 
+ * @return int number of keys
+ */
 int Node::GetKeysCount() const{
     int res = keys.size();
     for(Node* child : children)
@@ -76,6 +75,11 @@ int Node::GetKeysCount() const{
     return res;
 }
 
+/**
+ * @brief Counts how many Nodes includes current Node(including itself)
+ * 
+ * @return int number of Nodes
+ */
 int Node::GetNodesCount() const{
     int res = 1;
     for(Node* child : children)
@@ -83,6 +87,11 @@ int Node::GetNodesCount() const{
     return res;
 }
 
+/**
+ * @brief Counts height of current Node
+ * 
+ * @return int current's Node height
+ */
 int Node::GetHeight() const{
     if(!children.size())
         return 1;
@@ -97,30 +106,20 @@ int Node::GetHeight() const{
 }
 
 /**
- * @brief Outputs information about BTree
+ * @brief Collects all Node's and its children's keys to string
  * 
  */
-void Node::Statistic(){
-    cout << "Nodes: " << GetNodesCount() << endl;
-    cout << "Keys: " << GetKeysCount() << endl;
-    cout << "Height: " << GetHeight() << endl;
-}
-
-/**
- * @brief Outputs BTree
- * 
- */
-void Node::Output() const{
-    /*if(parent != NULL)
-        cout << "(" << parent->keys.at(0) << ") ";*/
+string Node::GetString() const{
+    string res;
     for(int key : keys)
-        cout << key << " ";
-    cout << endl;
+        res.append(to_string(key).append(" "));
+    res.append("\n");
     if(!children.size())
-        return;
-    cout << "Children : " << children.size() << endl;
+        return res;
+    res.append(string("Children: ").append(to_string(children.size()).append("\n")));
     for(Node* child : children)
-        child->Output();
+        res.append(child->GetString());
+    return res;
 }
 
 /**
@@ -137,7 +136,7 @@ void Node::InsertChild(Node* child, int id){
 /**
  * @brief Returns parent of Node
  * 
- * @return Node* 
+ * @return Node* this Node's parent
  */
 Node* Node::GetParent(){
     return parent;
@@ -156,9 +155,9 @@ bool Node::IsRoot() const{
 /**
  * @brief Checks if this Node has more keys than it should
  * 
- * @param order 
- * @return true 
- * @return false 
+ * @param order order of BTree
+ * @return true if Node now is owerflowed
+ * @return false if Node contains <= 2 * order keys
  */
 bool Node::IsOverFlow(int order) const{
     return keys.size() > 2 * order;
@@ -167,10 +166,10 @@ bool Node::IsOverFlow(int order) const{
 /**
  * @brief Inserts key in this Node and checks if there's overflow in this Node
  * 
- * @param key 
- * @param order 
- * @return true 
- * @return false 
+ * @param key key to be inserted
+ * @param order order of BTree
+ * @return true if Node now is owerflowed
+ * @return false if Node contains <= 2 * order keys
  */
 bool Node::InsertHere(int key, int order){
     for(int i = 0; i < keys.size() + 1; ++i)
@@ -190,8 +189,8 @@ Node* Node::FindRoot(){
 /**
  * @brief Looks for Node in which key should be
  * 
- * @param key 
- * @return Node* 
+ * @param key key to look place for
+ * @return Node* where key should be
  */
 Node* Node::WhereToInsert(int key){
     if(!children.size())
@@ -206,7 +205,7 @@ Node* Node::WhereToInsert(int key){
 /**
  * @brief Splits overflowed child of Node
  * 
- * @param order 
+ * @param order order of BTree
  */
 void Node::SplitOverFlowChild(int order){
     int id = 0;
@@ -232,9 +231,9 @@ void Node::SplitOverFlowChild(int order){
 }
 
 /**
- * @brief Looks for closes key in BTree
+ * @brief Looks for smallest key in subtree of BTree
  * 
- * @return int 
+ * @return int smallest key in subtree of BTree
  */
 int Node::GetClosesKeyBig(){
     if(!children.size())
@@ -379,9 +378,9 @@ Node* Node::SecretDelete(int key, int order){
 /**
  * @brief Deletes key from BTree
  * 
- * @param key 
- * @param order 
- * @return Node* 
+ * @param key key to be deleted
+ * @param order order of BTree
+ * @return Node* new or current BTree's root
  */
 Node* Node::Delete(int key, int order){
     Node* node = SearchNode(key);

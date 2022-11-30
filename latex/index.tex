@@ -1,22 +1,127 @@
 \hypertarget{index_Introduction}{}\doxysection{Introduction}\label{index_Introduction}
-This is a really simple soft for calculating simple expressions, downbelow you can find instructions for fast start.\hypertarget{index_Fast}{}\doxysection{Start}\label{index_Fast}
-For creating Expression you should use standart constructor 
+For creating \mbox{\hyperlink{classBTree}{B\+Tree}} you should use standart constructor. This \mbox{\hyperlink{classBTree}{B\+Tree}} implementation has minimum t keys in every \mbox{\hyperlink{classNode}{Node}}, and maximum 2t. t is order of \mbox{\hyperlink{classBTree}{B\+Tree}}.
+
+Here is a simple example of inserting keys in \mbox{\hyperlink{classBTree}{B\+Tree}}\+:
+
+
 \begin{DoxyCode}{0}
-\DoxyCodeLine{Expression expression = Expression(\textcolor{stringliteral}{"2+2"});}
+\DoxyCodeLine{\mbox{\hyperlink{classBTree}{BTree}} b = \mbox{\hyperlink{classBTree}{BTree}}(2);}
+\DoxyCodeLine{b.\mbox{\hyperlink{classBTree_aa17aba464822992d9ae5b316b1875eae}{Insert}}(3);}
+\DoxyCodeLine{b.\mbox{\hyperlink{classBTree_aa17aba464822992d9ae5b316b1875eae}{Insert}}(22);}
+\DoxyCodeLine{b.\mbox{\hyperlink{classBTree_aa17aba464822992d9ae5b316b1875eae}{Insert}}(10);}
+\DoxyCodeLine{b.\mbox{\hyperlink{classBTree_aa17aba464822992d9ae5b316b1875eae}{Insert}}(2);}
+\DoxyCodeLine{b.\mbox{\hyperlink{classBTree_aa17aba464822992d9ae5b316b1875eae}{Insert}}(17);}
+\DoxyCodeLine{b.\mbox{\hyperlink{classBTree_aa17aba464822992d9ae5b316b1875eae}{Insert}}(5);}
 \end{DoxyCode}
- Then you can immediately get the answer 
+
+
+Then you can output \mbox{\hyperlink{classBTree}{B\+Tree}} to consol\+:
+
+
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\textcolor{keywordtype}{float} result = expression.do\_calculations();}
+\DoxyCodeLine{b.\mbox{\hyperlink{classBTree_afee759863df76b4c210b8b0333243569}{Output}}();}
 \end{DoxyCode}
-\hypertarget{index_Details}{}\doxysection{Details}\label{index_Details}
-You can transform your expression to postfix or infix using these commands\+: 
+
+
+
 \begin{DoxyCode}{0}
-\DoxyCodeLine{expression.transfer\_to\_infix();}
-\DoxyCodeLine{expression.transfer\_to\_postfix();}
+\DoxyCodeLine{BTree:}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{Children : 2}
+\DoxyCodeLine{2 3 5 }
+\DoxyCodeLine{17 22}
 \end{DoxyCode}
- And, more importantly, you can print both infix and postfix 
+
+
+And also see some statistic\+:
+
+
 \begin{DoxyCode}{0}
-\DoxyCodeLine{expression.print\_infix();}
-\DoxyCodeLine{expression.print\_postfix();}
+\DoxyCodeLine{b.\mbox{\hyperlink{classBTree_a0db1a21a2e6236e1b5febde86b207168}{Statistic}}();}
+\end{DoxyCode}
+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{BTree statistic:}
+\DoxyCodeLine{Nodes: 3}
+\DoxyCodeLine{Keys: 6}
+\DoxyCodeLine{Height: 2}
+\end{DoxyCode}
+
+
+Then you can try deleteing some elements, for example\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{b.\mbox{\hyperlink{classBTree_af95d6398b5328e1bdb96acaad98c36ea}{Delete}}(22);}
+\DoxyCodeLine{b.\mbox{\hyperlink{classBTree_afee759863df76b4c210b8b0333243569}{Output}}();}
+\end{DoxyCode}
+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{BTree:}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{Children : 2}
+\DoxyCodeLine{2 3 }
+\DoxyCodeLine{10 17 }
+\end{DoxyCode}
+
+
+You can also see, if this \mbox{\hyperlink{classBTree}{B\+Tree}} contains some key\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{cout << string(b.\mbox{\hyperlink{classBTree_ae4ae71f030bbedcd56120c323482f738}{Search}}(10) ? \textcolor{stringliteral}{"BTree contains 10!"} : \textcolor{stringliteral}{"BTree doesn't contain 10"}) << endl;}
+\DoxyCodeLine{cout << string(b.\mbox{\hyperlink{classBTree_ae4ae71f030bbedcd56120c323482f738}{Search}}(12) ? \textcolor{stringliteral}{"BTree contains 12!"} : \textcolor{stringliteral}{"BTree doesn't contain 12"}) << endl;}
+\end{DoxyCode}
+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{BTree contains 10!}
+\DoxyCodeLine{BTree doesn't contain 12}
+\end{DoxyCode}
+
+
+And finally you can write your \mbox{\hyperlink{classBTree}{B\+Tree}} to file, using method Output\+To\+File(\char`\"{}output.\+txt\char`\"{}, true), where second argument is used to indicate whether you want to append otuput to file or rewrite it.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{b.\mbox{\hyperlink{classBTree_a8426f43be107ac33a43ef087cbedad5a}{OutputToFile}}(\textcolor{stringliteral}{"output.txt"}, \textcolor{keyword}{false});}
+\end{DoxyCode}
+
+
+output.\+txt will look the same as previous \mbox{\hyperlink{classBTree_afee759863df76b4c210b8b0333243569}{B\+Tree.\+Output()}}. And here\textquotesingle{}s all code used in this example\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include "BTree.h"}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <fstream>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{int} main()\{}
+\DoxyCodeLine{    \mbox{\hyperlink{classBTree}{BTree}} b = \mbox{\hyperlink{classBTree}{BTree}}(2);}
+\DoxyCodeLine{    b.\mbox{\hyperlink{classBTree_aa17aba464822992d9ae5b316b1875eae}{Insert}}(3);}
+\DoxyCodeLine{    b.\mbox{\hyperlink{classBTree_aa17aba464822992d9ae5b316b1875eae}{Insert}}(22);}
+\DoxyCodeLine{    b.\mbox{\hyperlink{classBTree_aa17aba464822992d9ae5b316b1875eae}{Insert}}(10);}
+\DoxyCodeLine{    b.\mbox{\hyperlink{classBTree_aa17aba464822992d9ae5b316b1875eae}{Insert}}(2);}
+\DoxyCodeLine{    b.\mbox{\hyperlink{classBTree_aa17aba464822992d9ae5b316b1875eae}{Insert}}(17);}
+\DoxyCodeLine{    b.\mbox{\hyperlink{classBTree_aa17aba464822992d9ae5b316b1875eae}{Insert}}(5);}
+\DoxyCodeLine{    b.\mbox{\hyperlink{classBTree_afee759863df76b4c210b8b0333243569}{Output}}();}
+\DoxyCodeLine{    b.\mbox{\hyperlink{classBTree_a0db1a21a2e6236e1b5febde86b207168}{Statistic}}();}
+\DoxyCodeLine{    b.\mbox{\hyperlink{classBTree_af95d6398b5328e1bdb96acaad98c36ea}{Delete}}(22);}
+\DoxyCodeLine{    b.\mbox{\hyperlink{classBTree_afee759863df76b4c210b8b0333243569}{Output}}();}
+\DoxyCodeLine{    cout << string(b.\mbox{\hyperlink{classBTree_ae4ae71f030bbedcd56120c323482f738}{Search}}(10) ? \textcolor{stringliteral}{"BTree contains 10!"} : \textcolor{stringliteral}{"BTree doesn't contain 10"}) << endl;}
+\DoxyCodeLine{    cout << string(b.\mbox{\hyperlink{classBTree_ae4ae71f030bbedcd56120c323482f738}{Search}}(12) ? \textcolor{stringliteral}{"BTree contains 12!"} : \textcolor{stringliteral}{"BTree doesn't contain 12"}) << endl;}
+\DoxyCodeLine{    b.\mbox{\hyperlink{classBTree_a8426f43be107ac33a43ef087cbedad5a}{OutputToFile}}(\textcolor{stringliteral}{"output.txt"}, \textcolor{keyword}{false});}
+\DoxyCodeLine{    \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{\}}
 \end{DoxyCode}
  

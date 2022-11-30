@@ -76,9 +76,15 @@ void BTree::Delete(int key){
  */
 void BTree::Output() const{
     cout << "BTree:" << endl;
-    root->Output();
+    cout << root->GetString();
 }
 
+/**
+ * @brief Outputs BTree to file 
+ * 
+ * @param file_name file's name
+ * @param append if you need to apped to file or to rewrite it with BTree
+ */
 void BTree::OutputToFile(string file_name, bool append) const{
     ofstream file;
     if(append){
@@ -87,7 +93,8 @@ void BTree::OutputToFile(string file_name, bool append) const{
     }
     else
         file.open(file_name);
-    file << "test";
+    file << "BTree:" << endl;
+    file << root->GetString();
     file.close();
 }
 
@@ -97,5 +104,7 @@ void BTree::OutputToFile(string file_name, bool append) const{
  */
 void BTree::Statistic() const{
     cout << "BTree statistic:" << endl;
-    root->Statistic();
+    cout << "Nodes: " << root->GetNodesCount() << endl;
+    cout << "Keys: " << root->GetKeysCount() << endl;
+    cout << "Height: " << root->GetHeight() << endl;
 }

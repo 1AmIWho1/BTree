@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>BTree: Expressions</title>
+<title>BTree: BTree</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -23,7 +23,6 @@
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">BTree
    </div>
-   <div id="projectbrief">BTree with nodes containing min. keys t and max. 2t</div>
   </td>
  </tr>
  </tbody>
@@ -63,24 +62,84 @@ $(function() {
 
 <div class="PageDoc"><div class="header">
   <div class="headertitle">
-<div class="title">Expressions </div>  </div>
+<div class="title"><a class="el" href="classBTree.html" title="Class used for storing order and pointer to root of BTree.">BTree</a> </div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><h1><a class="anchor" id="Introduction"></a>
 Introduction</h1>
-<p>This is a really simple soft for calculating simple expressions, downbelow you can find instructions for fast start.</p>
-<h1><a class="anchor" id="Fast"></a>
-Start</h1>
-<p>For creating Expression you should use standart constructor </p><div class="fragment"><div class="line">Expression expression = Expression(<span class="stringliteral">&quot;2+2&quot;</span>);</div>
-</div><!-- fragment --><p> Then you can immediately get the answer </p><div class="fragment"><div class="line"><span class="keywordtype">float</span> result = expression.do_calculations();</div>
-</div><!-- fragment --><h1><a class="anchor" id="Details"></a>
-Details</h1>
-<p>You can transform your expression to postfix or infix using these commands: </p><div class="fragment"><div class="line">expression.transfer_to_infix();</div>
-<div class="line">expression.transfer_to_postfix();</div>
-</div><!-- fragment --><p> And, more importantly, you can print both infix and postfix </p><div class="fragment"><div class="line">expression.print_infix();</div>
-<div class="line">expression.print_postfix();</div>
+<p>For creating <a class="el" href="classBTree.html" title="Class used for storing order and pointer to root of BTree.">BTree</a> you should use standart constructor. This <a class="el" href="classBTree.html" title="Class used for storing order and pointer to root of BTree.">BTree</a> implementation has minimum t keys in every <a class="el" href="classNode.html" title="Contains pointer to its parent, keys and child Nodes.">Node</a>, and maximum 2t. t is order of <a class="el" href="classBTree.html" title="Class used for storing order and pointer to root of BTree.">BTree</a>.</p>
+<p>Here is a simple example of inserting keys in <a class="el" href="classBTree.html" title="Class used for storing order and pointer to root of BTree.">BTree</a>:</p>
+<div class="fragment"><div class="line"><a class="code" href="classBTree.html">BTree</a> b = <a class="code" href="classBTree.html">BTree</a>(2);</div>
+<div class="line">b.<a class="code" href="classBTree.html#aa17aba464822992d9ae5b316b1875eae">Insert</a>(3);</div>
+<div class="line">b.<a class="code" href="classBTree.html#aa17aba464822992d9ae5b316b1875eae">Insert</a>(22);</div>
+<div class="line">b.<a class="code" href="classBTree.html#aa17aba464822992d9ae5b316b1875eae">Insert</a>(10);</div>
+<div class="line">b.<a class="code" href="classBTree.html#aa17aba464822992d9ae5b316b1875eae">Insert</a>(2);</div>
+<div class="line">b.<a class="code" href="classBTree.html#aa17aba464822992d9ae5b316b1875eae">Insert</a>(17);</div>
+<div class="line">b.<a class="code" href="classBTree.html#aa17aba464822992d9ae5b316b1875eae">Insert</a>(5);</div>
+</div><!-- fragment --><p>Then you can output <a class="el" href="classBTree.html" title="Class used for storing order and pointer to root of BTree.">BTree</a> to consol:</p>
+<div class="fragment"><div class="line">b.<a class="code" href="classBTree.html#afee759863df76b4c210b8b0333243569">Output</a>();</div>
+</div><!-- fragment --><div class="fragment"><div class="line">BTree:</div>
+<div class="line">10 </div>
+<div class="line">Children : 2</div>
+<div class="line">2 3 5 </div>
+<div class="line">17 22</div>
+</div><!-- fragment --><p>And also see some statistic:</p>
+<div class="fragment"><div class="line">b.<a class="code" href="classBTree.html#a0db1a21a2e6236e1b5febde86b207168">Statistic</a>();</div>
+</div><!-- fragment --><div class="fragment"><div class="line">BTree statistic:</div>
+<div class="line">Nodes: 3</div>
+<div class="line">Keys: 6</div>
+<div class="line">Height: 2</div>
+</div><!-- fragment --><p>Then you can try deleteing some elements, for example:</p>
+<div class="fragment"><div class="line">b.<a class="code" href="classBTree.html#af95d6398b5328e1bdb96acaad98c36ea">Delete</a>(22);</div>
+<div class="line">b.<a class="code" href="classBTree.html#afee759863df76b4c210b8b0333243569">Output</a>();</div>
+</div><!-- fragment --><div class="fragment"><div class="line">BTree:</div>
+<div class="line">5 </div>
+<div class="line">Children : 2</div>
+<div class="line">2 3 </div>
+<div class="line">10 17 </div>
+</div><!-- fragment --><p>You can also see, if this <a class="el" href="classBTree.html" title="Class used for storing order and pointer to root of BTree.">BTree</a> contains some key:</p>
+<div class="fragment"><div class="line">cout &lt;&lt; string(b.<a class="code" href="classBTree.html#ae4ae71f030bbedcd56120c323482f738">Search</a>(10) ? <span class="stringliteral">&quot;BTree contains 10!&quot;</span> : <span class="stringliteral">&quot;BTree doesn&#39;t contain 10&quot;</span>) &lt;&lt; endl;</div>
+<div class="line">cout &lt;&lt; string(b.<a class="code" href="classBTree.html#ae4ae71f030bbedcd56120c323482f738">Search</a>(12) ? <span class="stringliteral">&quot;BTree contains 12!&quot;</span> : <span class="stringliteral">&quot;BTree doesn&#39;t contain 12&quot;</span>) &lt;&lt; endl;</div>
+</div><!-- fragment --><div class="fragment"><div class="line">BTree contains 10!</div>
+<div class="line">BTree doesn&#39;t contain 12</div>
+</div><!-- fragment --><p>And finally you can write your <a class="el" href="classBTree.html" title="Class used for storing order and pointer to root of BTree.">BTree</a> to file, using method OutputToFile("output.txt", true), where second argument is used to indicate whether you want to append otuput to file or rewrite it.</p>
+<div class="fragment"><div class="line">b.<a class="code" href="classBTree.html#a8426f43be107ac33a43ef087cbedad5a">OutputToFile</a>(<span class="stringliteral">&quot;output.txt&quot;</span>, <span class="keyword">false</span>);</div>
+</div><!-- fragment --><p>output.txt will look the same as previous <a class="el" href="classBTree.html#afee759863df76b4c210b8b0333243569" title="Outputs BTree to consol.">BTree.Output()</a>. And here's all code used in this example:</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;BTree.h&quot;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;fstream&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">using namespace </span>std;</div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">int</span> main(){</div>
+<div class="line">    <a class="code" href="classBTree.html">BTree</a> b = <a class="code" href="classBTree.html">BTree</a>(2);</div>
+<div class="line">    b.<a class="code" href="classBTree.html#aa17aba464822992d9ae5b316b1875eae">Insert</a>(3);</div>
+<div class="line">    b.<a class="code" href="classBTree.html#aa17aba464822992d9ae5b316b1875eae">Insert</a>(22);</div>
+<div class="line">    b.<a class="code" href="classBTree.html#aa17aba464822992d9ae5b316b1875eae">Insert</a>(10);</div>
+<div class="line">    b.<a class="code" href="classBTree.html#aa17aba464822992d9ae5b316b1875eae">Insert</a>(2);</div>
+<div class="line">    b.<a class="code" href="classBTree.html#aa17aba464822992d9ae5b316b1875eae">Insert</a>(17);</div>
+<div class="line">    b.<a class="code" href="classBTree.html#aa17aba464822992d9ae5b316b1875eae">Insert</a>(5);</div>
+<div class="line">    b.<a class="code" href="classBTree.html#afee759863df76b4c210b8b0333243569">Output</a>();</div>
+<div class="line">    b.<a class="code" href="classBTree.html#a0db1a21a2e6236e1b5febde86b207168">Statistic</a>();</div>
+<div class="line">    b.<a class="code" href="classBTree.html#af95d6398b5328e1bdb96acaad98c36ea">Delete</a>(22);</div>
+<div class="line">    b.<a class="code" href="classBTree.html#afee759863df76b4c210b8b0333243569">Output</a>();</div>
+<div class="line">    cout &lt;&lt; string(b.<a class="code" href="classBTree.html#ae4ae71f030bbedcd56120c323482f738">Search</a>(10) ? <span class="stringliteral">&quot;BTree contains 10!&quot;</span> : <span class="stringliteral">&quot;BTree doesn&#39;t contain 10&quot;</span>) &lt;&lt; endl;</div>
+<div class="line">    cout &lt;&lt; string(b.<a class="code" href="classBTree.html#ae4ae71f030bbedcd56120c323482f738">Search</a>(12) ? <span class="stringliteral">&quot;BTree contains 12!&quot;</span> : <span class="stringliteral">&quot;BTree doesn&#39;t contain 12&quot;</span>) &lt;&lt; endl;</div>
+<div class="line">    b.<a class="code" href="classBTree.html#a8426f43be107ac33a43ef087cbedad5a">OutputToFile</a>(<span class="stringliteral">&quot;output.txt&quot;</span>, <span class="keyword">false</span>);</div>
+<div class="line">    <span class="keywordflow">return</span> 0;</div>
+<div class="line">}</div>
 </div><!-- fragment --> </div></div><!-- PageDoc -->
 </div><!-- contents -->
+<div class="ttc" id="aclassBTree_html"><div class="ttname"><a href="classBTree.html">BTree</a></div><div class="ttdoc">Class used for storing order and pointer to root of BTree.</div><div class="ttdef"><b>Definition:</b> BTree.h:14</div></div>
+<div class="ttc" id="aclassBTree_html_a8426f43be107ac33a43ef087cbedad5a"><div class="ttname"><a href="classBTree.html#a8426f43be107ac33a43ef087cbedad5a">BTree::OutputToFile</a></div><div class="ttdeci">void OutputToFile(string file_name, bool append) const</div><div class="ttdoc">Outputs BTree to file.</div><div class="ttdef"><b>Definition:</b> BTree.cpp:88</div></div>
+<div class="ttc" id="aclassBTree_html_a0db1a21a2e6236e1b5febde86b207168"><div class="ttname"><a href="classBTree.html#a0db1a21a2e6236e1b5febde86b207168">BTree::Statistic</a></div><div class="ttdeci">void Statistic() const</div><div class="ttdoc">Outputs brief information about BTree.</div><div class="ttdef"><b>Definition:</b> BTree.cpp:105</div></div>
+<div class="ttc" id="aclassBTree_html_afee759863df76b4c210b8b0333243569"><div class="ttname"><a href="classBTree.html#afee759863df76b4c210b8b0333243569">BTree::Output</a></div><div class="ttdeci">void Output() const</div><div class="ttdoc">Outputs BTree to consol.</div><div class="ttdef"><b>Definition:</b> BTree.cpp:77</div></div>
+<div class="ttc" id="aclassBTree_html_af95d6398b5328e1bdb96acaad98c36ea"><div class="ttname"><a href="classBTree.html#af95d6398b5328e1bdb96acaad98c36ea">BTree::Delete</a></div><div class="ttdeci">void Delete(int key)</div><div class="ttdoc">Deletes key from tree.</div><div class="ttdef"><b>Definition:</b> BTree.cpp:70</div></div>
+<div class="ttc" id="aclassBTree_html_aa17aba464822992d9ae5b316b1875eae"><div class="ttname"><a href="classBTree.html#aa17aba464822992d9ae5b316b1875eae">BTree::Insert</a></div><div class="ttdeci">void Insert(int key)</div><div class="ttdoc">Inserts new key into BTree.</div><div class="ttdef"><b>Definition:</b> BTree.cpp:47</div></div>
+<div class="ttc" id="aclassBTree_html_ae4ae71f030bbedcd56120c323482f738"><div class="ttname"><a href="classBTree.html#ae4ae71f030bbedcd56120c323482f738">BTree::Search</a></div><div class="ttdeci">bool Search(int key) const</div><div class="ttdoc">Checks, if key is containted in the BTree.</div><div class="ttdef"><b>Definition:</b> BTree.cpp:30</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

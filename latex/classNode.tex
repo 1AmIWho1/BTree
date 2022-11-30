@@ -18,8 +18,14 @@ Contains pointer to its parent, keys and child Nodes.
 \begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classNode}{Node}} object with known parent. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classNode_abc8be8a0ee6e00ce49068bf054b4d286}{Search}} (int n)
 \begin{DoxyCompactList}\small\item\em Checks, if tree obrains this key. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classNode_a6e68b210db4a2f84327c7d04cf1ee954}{Output}} () const
-\begin{DoxyCompactList}\small\item\em Outputs \mbox{\hyperlink{classBTree}{B\+Tree}}. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{classNode_a0837538d46cbee2faadf550710163146}{Get\+String}} () const
+\begin{DoxyCompactList}\small\item\em Collects all \mbox{\hyperlink{classNode}{Node}}\textquotesingle{}s and its children\textquotesingle{}s keys to string. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classNode_a75ff43fef84e84bc32961e779abbf72b}{Get\+Keys\+Count}} () const
+\begin{DoxyCompactList}\small\item\em Counts keys in current and all children. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classNode_aa71e8fe75b91fa5711c9bd3972c3b8c5}{Get\+Nodes\+Count}} () const
+\begin{DoxyCompactList}\small\item\em Counts how many Nodes includes current \mbox{\hyperlink{classNode}{Node(including itself)}} \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classNode_ad4d6cf268fe31e4ee8217db3aa9eef5e}{Get\+Height}} () const
+\begin{DoxyCompactList}\small\item\em Counts height of current \mbox{\hyperlink{classNode}{Node}}. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classNode_a6377db48f0483eab4f2cb1ce2c1fb9af}{Insert\+Child}} (\mbox{\hyperlink{classNode}{Node}} $\ast$child, int id)
 \begin{DoxyCompactList}\small\item\em Inserts another \mbox{\hyperlink{classNode}{Node}} in this \mbox{\hyperlink{classNode}{Node}}\textquotesingle{}s children. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classNode_a50723866b36f214de7d3544aaee3d327}{Set\+Parent}} (\mbox{\hyperlink{classNode}{Node}} $\ast$parent)
@@ -37,9 +43,7 @@ bool \mbox{\hyperlink{classNode_a4d7dcde12bcd6c0ee804369e013f95db}{Insert\+Here}
 void \mbox{\hyperlink{classNode_a5a2e85bb766e8ff7a62b2082c27dd745}{Split\+Over\+Flow\+Child}} (int order)
 \begin{DoxyCompactList}\small\item\em Splits overflowed child of \mbox{\hyperlink{classNode}{Node}}. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classNode}{Node}} $\ast$ \mbox{\hyperlink{classNode_a398160eb8e255ed1571ae583843c1762}{Delete}} (int key, int order)
-\begin{DoxyCompactList}\small\item\em Deletes key from \mbox{\hyperlink{classBTree}{B\+Tree}}. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classNode_a9beb2e869b80e3967d306ff79cc7e504}{Statistic}} ()
-\begin{DoxyCompactList}\small\item\em Outputs information about \mbox{\hyperlink{classBTree}{B\+Tree}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Deletes key from \mbox{\hyperlink{classBTree}{B\+Tree}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -88,13 +92,52 @@ Deletes key from \mbox{\hyperlink{classBTree}{B\+Tree}}.
 
 
 \begin{DoxyParams}{Parameters}
-{\em key} & \\
+{\em key} & key to be deleted \\
 \hline
-{\em order} & \\
+{\em order} & order of \mbox{\hyperlink{classBTree}{B\+Tree}} \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Node$\ast$ 
+Node$\ast$ new or current \mbox{\hyperlink{classBTree}{B\+Tree}}\textquotesingle{}s root 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classNode_ad4d6cf268fe31e4ee8217db3aa9eef5e}\label{classNode_ad4d6cf268fe31e4ee8217db3aa9eef5e}} 
+\index{Node@{Node}!GetHeight@{GetHeight}}
+\index{GetHeight@{GetHeight}!Node@{Node}}
+\doxysubsubsection{\texorpdfstring{GetHeight()}{GetHeight()}}
+{\footnotesize\ttfamily int Node\+::\+Get\+Height (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Counts height of current \mbox{\hyperlink{classNode}{Node}}. 
+
+\begin{DoxyReturn}{Returns}
+int current\textquotesingle{}s \mbox{\hyperlink{classNode}{Node}} height 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classNode_a75ff43fef84e84bc32961e779abbf72b}\label{classNode_a75ff43fef84e84bc32961e779abbf72b}} 
+\index{Node@{Node}!GetKeysCount@{GetKeysCount}}
+\index{GetKeysCount@{GetKeysCount}!Node@{Node}}
+\doxysubsubsection{\texorpdfstring{GetKeysCount()}{GetKeysCount()}}
+{\footnotesize\ttfamily int Node\+::\+Get\+Keys\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Counts keys in current and all children. 
+
+\begin{DoxyReturn}{Returns}
+int number of keys 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classNode_aa71e8fe75b91fa5711c9bd3972c3b8c5}\label{classNode_aa71e8fe75b91fa5711c9bd3972c3b8c5}} 
+\index{Node@{Node}!GetNodesCount@{GetNodesCount}}
+\index{GetNodesCount@{GetNodesCount}!Node@{Node}}
+\doxysubsubsection{\texorpdfstring{GetNodesCount()}{GetNodesCount()}}
+{\footnotesize\ttfamily int Node\+::\+Get\+Nodes\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Counts how many Nodes includes current \mbox{\hyperlink{classNode}{Node(including itself)}} 
+
+\begin{DoxyReturn}{Returns}
+int number of Nodes 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classNode_a21659b0d9c83aa8eeeb2c61ac42fac68}\label{classNode_a21659b0d9c83aa8eeeb2c61ac42fac68}} 
 \index{Node@{Node}!GetParent@{GetParent}}
@@ -107,8 +150,18 @@ Node$\ast$
 Returns parent of \mbox{\hyperlink{classNode}{Node}}. 
 
 \begin{DoxyReturn}{Returns}
-Node$\ast$ 
+Node$\ast$ this \mbox{\hyperlink{classNode}{Node}}\textquotesingle{}s parent 
 \end{DoxyReturn}
+\mbox{\Hypertarget{classNode_a0837538d46cbee2faadf550710163146}\label{classNode_a0837538d46cbee2faadf550710163146}} 
+\index{Node@{Node}!GetString@{GetString}}
+\index{GetString@{GetString}!Node@{Node}}
+\doxysubsubsection{\texorpdfstring{GetString()}{GetString()}}
+{\footnotesize\ttfamily string Node\+::\+Get\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Collects all \mbox{\hyperlink{classNode}{Node}}\textquotesingle{}s and its children\textquotesingle{}s keys to string. 
+
 \mbox{\Hypertarget{classNode_a6377db48f0483eab4f2cb1ce2c1fb9af}\label{classNode_a6377db48f0483eab4f2cb1ce2c1fb9af}} 
 \index{Node@{Node}!InsertChild@{InsertChild}}
 \index{InsertChild@{InsertChild}!Node@{Node}}
@@ -138,15 +191,15 @@ Inserts key in this \mbox{\hyperlink{classNode}{Node}} and checks if there\textq
 
 
 \begin{DoxyParams}{Parameters}
-{\em key} & \\
+{\em key} & key to be inserted \\
 \hline
-{\em order} & \\
+{\em order} & order of \mbox{\hyperlink{classBTree}{B\+Tree}} \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-true 
+true if \mbox{\hyperlink{classNode}{Node}} now is owerflowed 
 
-false 
+false if \mbox{\hyperlink{classNode}{Node}} contains $<$= 2 $\ast$ order keys 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classNode_a111542fae433c24fa889ab3e039ad247}\label{classNode_a111542fae433c24fa889ab3e039ad247}} 
 \index{Node@{Node}!IsOverFlow@{IsOverFlow}}
@@ -160,13 +213,13 @@ Checks if this \mbox{\hyperlink{classNode}{Node}} has more keys than it should.
 
 
 \begin{DoxyParams}{Parameters}
-{\em order} & \\
+{\em order} & order of \mbox{\hyperlink{classBTree}{B\+Tree}} \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-true 
+true if \mbox{\hyperlink{classNode}{Node}} now is owerflowed 
 
-false 
+false if \mbox{\hyperlink{classNode}{Node}} contains $<$= 2 $\ast$ order keys 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classNode_aa17b1ee6a4c9eeaf534ef3b52ff7786c}\label{classNode_aa17b1ee6a4c9eeaf534ef3b52ff7786c}} 
 \index{Node@{Node}!IsRoot@{IsRoot}}
@@ -183,16 +236,6 @@ true if this \mbox{\hyperlink{classNode}{Node}} is root
 
 false if this \mbox{\hyperlink{classNode}{Node}} isn\textquotesingle{}t root 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classNode_a6e68b210db4a2f84327c7d04cf1ee954}\label{classNode_a6e68b210db4a2f84327c7d04cf1ee954}} 
-\index{Node@{Node}!Output@{Output}}
-\index{Output@{Output}!Node@{Node}}
-\doxysubsubsection{\texorpdfstring{Output()}{Output()}}
-{\footnotesize\ttfamily void Node\+::\+Output (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
-
-
-
-Outputs \mbox{\hyperlink{classBTree}{B\+Tree}}. 
-
 \mbox{\Hypertarget{classNode_abc8be8a0ee6e00ce49068bf054b4d286}\label{classNode_abc8be8a0ee6e00ce49068bf054b4d286}} 
 \index{Node@{Node}!Search@{Search}}
 \index{Search@{Search}!Node@{Node}}
@@ -205,7 +248,7 @@ Checks, if tree obrains this key.
 
 
 \begin{DoxyParams}{Parameters}
-{\em key} & \\
+{\em key} & key to look for \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -225,7 +268,7 @@ Sets new parent for node.
 
 
 \begin{DoxyParams}{Parameters}
-{\em parent} & New parent \\
+{\em parent} & new parent \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{classNode_a5a2e85bb766e8ff7a62b2082c27dd745}\label{classNode_a5a2e85bb766e8ff7a62b2082c27dd745}} 
@@ -240,19 +283,9 @@ Splits overflowed child of \mbox{\hyperlink{classNode}{Node}}.
 
 
 \begin{DoxyParams}{Parameters}
-{\em order} & \\
+{\em order} & order of \mbox{\hyperlink{classBTree}{B\+Tree}} \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classNode_a9beb2e869b80e3967d306ff79cc7e504}\label{classNode_a9beb2e869b80e3967d306ff79cc7e504}} 
-\index{Node@{Node}!Statistic@{Statistic}}
-\index{Statistic@{Statistic}!Node@{Node}}
-\doxysubsubsection{\texorpdfstring{Statistic()}{Statistic()}}
-{\footnotesize\ttfamily void Node\+::\+Statistic (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-
-
-Outputs information about \mbox{\hyperlink{classBTree}{B\+Tree}}. 
-
 \mbox{\Hypertarget{classNode_a11211d0c695f2bd8022c96ec7accff89}\label{classNode_a11211d0c695f2bd8022c96ec7accff89}} 
 \index{Node@{Node}!WhereToInsert@{WhereToInsert}}
 \index{WhereToInsert@{WhereToInsert}!Node@{Node}}
@@ -265,11 +298,11 @@ Looks for \mbox{\hyperlink{classNode}{Node}} in which key should be.
 
 
 \begin{DoxyParams}{Parameters}
-{\em key} & \\
+{\em key} & key to look place for \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Node$\ast$ 
+Node$\ast$ where key should be 
 \end{DoxyReturn}
 
 
