@@ -17,7 +17,7 @@ BTree::BTree(int t){
 }
 
 BTree::~BTree(){
-    root = NULL;
+    delete root;
 }
 
 /**

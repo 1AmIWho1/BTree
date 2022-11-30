@@ -1,8 +1,5 @@
 #include "Node.h"
 
-#include <vector>
-#include <iostream>
-
 using namespace std;
 
 /**
@@ -25,7 +22,7 @@ Node::Node(Node* parent){
 Node::~Node(){
     this->parent = NULL;
     for(Node* node : children)
-        node = NULL;
+        delete node;
 }
 
 Node* Node::SearchNode(int n){
@@ -337,8 +334,12 @@ Node* Node::SecretDelete(int key, int order){
                 keys.insert(keys.begin() + order, S->keys.begin(), S->keys.end());
                 R->children.erase(R->children.begin() + child_id + 1);
 
-                if(R->keys.size() < order)
-                    return R->DoSomething(order);
+                if(R->keys.size() < order){
+                    Node* tmp = R->DoSomething(order);
+                    if(tmp != R)
+                        //delete R;
+                    return tmp;
+                }
 
                 return FindRoot();
             }
@@ -355,8 +356,12 @@ Node* Node::SecretDelete(int key, int order){
                 keys.insert(keys.begin(), S->keys.begin(), S->keys.end());
                 R->children.erase(R->children.begin() + child_id - 1);
 
-                if(R->keys.size() < order)
-                    return R->DoSomething(order);
+                if(R->keys.size() < order){
+                    Node* tmp = R->DoSomething(order);
+                    if(tmp != R)
+                        //delete R;
+                    return tmp;
+                }
 
                 return FindRoot();
             }
