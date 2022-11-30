@@ -11,7 +11,7 @@ using namespace std;
 class Node{
 private:
     Node* parent;
-    vector<Node*> children;
+    vector<Node> children;
     vector<int> keys;
 
     Node* SearchNode(int n);
@@ -31,7 +31,7 @@ public:
     bool Search(int n);
     void Output() const;
 
-    void InsertChild(Node* child, int id);
+    void InsertChild(Node child, int id);
     void SetParent(Node* parent);
 
     Node* GetParent();

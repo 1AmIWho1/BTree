@@ -20,7 +20,7 @@ bool \mbox{\hyperlink{classNode_abc8be8a0ee6e00ce49068bf054b4d286}{Search}} (int
 \begin{DoxyCompactList}\small\item\em Checks, if tree obrains this key. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classNode_a6e68b210db4a2f84327c7d04cf1ee954}{Output}} () const
 \begin{DoxyCompactList}\small\item\em Outputs \mbox{\hyperlink{classBTree}{B\+Tree}}. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classNode_a6377db48f0483eab4f2cb1ce2c1fb9af}{Insert\+Child}} (\mbox{\hyperlink{classNode}{Node}} $\ast$child, int id)
+void \mbox{\hyperlink{classNode_a113a3ebdcbe09fdc470ec5fd1ef5c86c}{Insert\+Child}} (\mbox{\hyperlink{classNode}{Node}} child, int id)
 \begin{DoxyCompactList}\small\item\em Inserts another \mbox{\hyperlink{classNode}{Node}} in this \mbox{\hyperlink{classNode}{Node}}\textquotesingle{}s children. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classNode_a50723866b36f214de7d3544aaee3d327}{Set\+Parent}} (\mbox{\hyperlink{classNode}{Node}} $\ast$parent)
 \begin{DoxyCompactList}\small\item\em Sets new parent for node. \end{DoxyCompactList}\item 
@@ -88,9 +88,9 @@ Deletes key from \mbox{\hyperlink{classBTree}{B\+Tree}}.
 
 
 \begin{DoxyParams}{Parameters}
-{\em key} & \\
+{\em key} & key to delete \\
 \hline
-{\em order} & \\
+{\em order} & order of \mbox{\hyperlink{classBTree}{B\+Tree}} \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -109,11 +109,11 @@ Returns parent of \mbox{\hyperlink{classNode}{Node}}.
 \begin{DoxyReturn}{Returns}
 Node$\ast$ 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classNode_a6377db48f0483eab4f2cb1ce2c1fb9af}\label{classNode_a6377db48f0483eab4f2cb1ce2c1fb9af}} 
+\mbox{\Hypertarget{classNode_a113a3ebdcbe09fdc470ec5fd1ef5c86c}\label{classNode_a113a3ebdcbe09fdc470ec5fd1ef5c86c}} 
 \index{Node@{Node}!InsertChild@{InsertChild}}
 \index{InsertChild@{InsertChild}!Node@{Node}}
 \doxysubsubsection{\texorpdfstring{InsertChild()}{InsertChild()}}
-{\footnotesize\ttfamily void Node\+::\+Insert\+Child (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classNode}{Node}} $\ast$}]{child,  }\item[{int}]{id }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Node\+::\+Insert\+Child (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classNode}{Node}}}]{child,  }\item[{int}]{id }\end{DoxyParamCaption})}
 
 
 
