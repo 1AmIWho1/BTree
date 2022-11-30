@@ -88,6 +88,7 @@ void BTree::OutputToFile(string file_name, bool append) const{
     else
         file.open(file_name);
     file << "test";
+    file.close();
 }
 
 /**

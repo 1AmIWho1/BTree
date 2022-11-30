@@ -68,6 +68,7 @@
 
 .vscode
 
+main
 *.o
 
 *.out
