@@ -1,5 +1,5 @@
 all: Node.o BTree.o main.o
-	g++ *.o -o main -g -fsanitize=address
+	g++ *.o -o main
 
 %.o: %.cpp %.h
 	$(CC) $< -c -o $@
