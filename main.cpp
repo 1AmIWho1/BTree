@@ -119,11 +119,17 @@ int main(){
 
 int main(){
     ifstream file;
-    file.open("input.txt"); // has same input as in the presentation
+    file.open("input.txt");               // has same input as in the presentation
     int order;
     file >> order;
     BTree b(order);
     char type;
+
+    string filem_out_name = "output.txt";
+    ofstream tmp(filem_out_name);
+    tmp << "";                            // so that file was empty
+    tmp.close();
+
     do{
         file >> type;
         if(type == 'i'){
@@ -132,6 +138,9 @@ int main(){
             for(int i = 0; i < n; ++i){
                 file >> key;
                 b.Insert(key);
+
+                b.OutputToFile(filem_out_name, true);
+
             }
         }
         else if(type == 'd'){
@@ -140,6 +149,9 @@ int main(){
             for(int i = 0; i < n; ++i){
                 file >> key;
                 b.Delete(key);
+
+                b.OutputToFile(filem_out_name, true);
+
             }
         }
         else if(type == 'o')
